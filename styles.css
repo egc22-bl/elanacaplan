@@ -1192,7 +1192,7 @@ main > .atmospheric-break {
   display: grid;
   grid-template-columns: 1fr 1.4fr 1fr;
   gap: 24px;
-  align-items: center;
+  align-items: last baseline;
 }
 
 .footer-brand {
@@ -1201,19 +1201,25 @@ main > .atmospheric-break {
 
 .site-footer p {
   justify-self: center;
+  margin: 0;
+  max-width: 36rem;
   color: var(--ink-muted);
   font-size: 0.9rem;
+  line-height: 1.45;
+  text-wrap: balance;
 }
 
 .site-footer nav {
   display: flex;
   gap: 22px;
   justify-content: end;
+  align-items: baseline;
 }
 
 .site-footer a:not(.brand) {
   color: var(--ink-muted);
   font-size: 0.9rem;
+  line-height: 1.45;
 }
 
 .site-footer a:hover,

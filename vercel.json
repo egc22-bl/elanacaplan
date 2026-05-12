@@ -4,13 +4,5 @@
   "buildCommand": null,
   "outputDirectory": ".",
   "cleanUrls": true,
-  "trailingSlash": false,
-  "redirects": [
-    {
-      "source": "/(.*)",
-      "has": [{ "type": "host", "value": "felaro-website.vercel.app" }],
-      "destination": "https://elanacaplan-elanacaplan22-7229s-projects.vercel.app/$1",
-      "permanent": true
-    }
-  ]
+  "trailingSlash": false
 }

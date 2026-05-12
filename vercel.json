@@ -4,5 +4,13 @@
   "buildCommand": null,
   "outputDirectory": ".",
   "cleanUrls": true,
-  "trailingSlash": false
+  "trailingSlash": false,
+  "redirects": [
+    {
+      "source": "/(.*)",
+      "has": [{ "type": "host", "value": "elanacaplan.com" }],
+      "destination": "https://www.elanacaplan.com/$1",
+      "permanent": true
+    }
+  ]
 }

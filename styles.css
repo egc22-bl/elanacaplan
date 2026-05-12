@@ -1006,6 +1006,10 @@ main > .atmospheric-break {
   border-top: 0;
 }
 
+.challenge-row--full {
+  grid-template-columns: 1fr;
+}
+
 .challenge-head {
   padding-top: 18px;
   padding-bottom: 18px;

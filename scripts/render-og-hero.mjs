@@ -1,7 +1,7 @@
 #!/usr/bin/env node
 /**
- * Renders public/static/og-social.png (1200×630) from the real index.html + styles.css
- * using headless Chromium. Run from repo root: node scripts/render-og-hero.mjs
+ * Renders public/static/og-social.png and og-social-v2.png (1200×630) from index.html + styles.css
+ * using headless Chromium. Run: npm run render:og
  * Requires: npm i playwright && npx playwright install chromium
  */
 import http from "node:http";
@@ -11,6 +11,7 @@ import fs from "node:fs";
 
 const root = path.join(fileURLToPath(new URL(".", import.meta.url)), "..");
 const outPath = path.join(root, "public", "static", "og-social.png");
+const outPathV2 = path.join(root, "public", "static", "og-social-v2.png");
 const port = 9876;
 
 async function sleep(ms) {
@@ -59,7 +60,7 @@ function startStaticServer() {
   });
 }
 
-/** Capture-only: freeze motion, crop document to OG frame, match live hero chrome */
+/** Capture-only: freeze motion, crop to OG frame; header hidden for editorial card (not live site) */
 const captureCss = `
   [data-reveal] { opacity: 1 !important; transform: none !important; }
   .route { stroke-dashoffset: 0 !important; animation: none !important; }
@@ -67,6 +68,7 @@ const captureCss = `
   main > .atmospheric-break,
   .site-footer,
   footer { display: none !important; }
+  .site-header { display: none !important; }
   html, body {
     margin: 0 !important;
     width: 1200px !important;
@@ -78,16 +80,11 @@ const captureCss = `
     max-height: 630px !important;
     overflow: hidden !important;
   }
-  .site-header {
-    position: static !important;
-    min-height: 76px !important;
-    width: 100% !important;
-  }
   section.hero {
-    min-height: calc(630px - 76px) !important;
-    height: calc(630px - 76px) !important;
-    max-height: calc(630px - 76px) !important;
-    padding: 48px 0 32px !important;
+    min-height: 630px !important;
+    height: 630px !important;
+    max-height: 630px !important;
+    padding: 72px 0 48px !important;
     overflow: hidden !important;
     align-items: flex-end !important;
   }
@@ -137,13 +134,14 @@ async function main() {
       type: "png",
       clip: { x: 0, y: 0, width: 1200, height: 630 },
     });
+    fs.copyFileSync(outPath, outPathV2);
+    const st = fs.statSync(outPath);
+    console.log(`Wrote ${outPath} (${st.size} bytes)`);
+    console.log(`Wrote ${outPathV2} (copy for LinkedIn cache-bust)`);
   } finally {
     await browser.close();
     server.close();
   }
-
-  const st = fs.statSync(outPath);
-  console.log(`Wrote ${outPath} (${st.size} bytes)`);
 }
 
 main().catch((e) => {

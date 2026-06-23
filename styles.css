@@ -781,6 +781,19 @@ main > .atmospheric-break {
   line-height: 1.65;
 }
 
+.service-meta {
+  color: var(--signal);
+  font-size: 0.82rem;
+  font-weight: 560;
+  letter-spacing: 0.04em;
+}
+
+@media (min-width: 981px) {
+  .service-panel .service-meta {
+    grid-column: 2 / -1;
+  }
+}
+
 .method-section {
   position: relative;
   padding: 148px 0 152px;
@@ -1345,6 +1358,33 @@ main > .atmospheric-break {
     width: 100%;
   }
 
+  .service-panel {
+    grid-template-columns: auto 1fr;
+    gap: 14px 16px;
+    min-height: 0;
+    padding: 24px;
+  }
+
+  .service-index {
+    align-self: start;
+    padding-top: 0.2em;
+  }
+
+  .service-panel h3 {
+    font-size: 1.32rem;
+  }
+
+  .service-panel > p:not(.service-meta) {
+    grid-column: 1 / -1;
+  }
+
+  .service-panel .service-meta {
+    grid-column: 1 / -1;
+    margin-top: 2px;
+    padding-top: 14px;
+    border-top: 1px solid var(--border-card);
+  }
+
   .service-panel::after {
     display: none;
   }
@@ -1481,10 +1521,8 @@ main > .atmospheric-break {
     font-size: 1.36rem;
   }
 
-  .service-panel {
-    grid-template-columns: 1fr;
-    gap: 18px;
-    padding: 24px;
+  .service-panel h3 {
+    font-size: 1.24rem;
   }
 
   .method-visual {

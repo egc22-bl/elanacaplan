@@ -1,0 +1,48 @@
+name: Scheduled production deploy
+
+on:
+  schedule:
+    # July 7, 2026 at 10:30 AM EDT (14:30 UTC)
+    - cron: "30 14 7 7 *"
+  workflow_dispatch:
+
+permissions:
+  contents: write
+
+concurrency:
+  group: scheduled-production-deploy
+  cancel-in-progress: false
+
+jobs:
+  merge-and-deploy:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Check release window
+        id: guard
+        run: |
+          if [ "${{ github.event_name }}" = "workflow_dispatch" ]; then
+            echo "proceed=true" >> "$GITHUB_OUTPUT"
+            exit 0
+          fi
+          TODAY=$(TZ=America/New_York date +%Y-%m-%d)
+          if [ "$TODAY" = "2026-07-07" ]; then
+            echo "proceed=true" >> "$GITHUB_OUTPUT"
+          else
+            echo "proceed=false" >> "$GITHUB_OUTPUT"
+            echo "Outside one-time release window; skipping."
+          fi
+
+      - uses: actions/checkout@v4
+        if: steps.guard.outputs.proceed == 'true'
+        with:
+          fetch-depth: 0
+          ref: main
+
+      - name: Merge release branch into main
+        if: steps.guard.outputs.proceed == 'true'
+        run: |
+          git config user.name "github-actions[bot]"
+          git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
+          git fetch origin release/july-7-writing-updates
+          git merge origin/release/july-7-writing-updates --no-edit -m "Release: Writing nav and newsletter updates"
+          git push origin main

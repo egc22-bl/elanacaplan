@@ -1066,6 +1066,15 @@ main > .atmospheric-break {
   line-height: 1.06;
 }
 
+.about-subhead {
+  max-width: 30rem;
+  margin-top: 40px;
+  color: var(--ink-soft);
+  font-size: 1.28rem;
+  font-weight: 450;
+  line-height: 1.35;
+}
+
 .about-copy {
   display: grid;
   gap: 26px;

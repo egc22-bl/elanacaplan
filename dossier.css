@@ -697,6 +697,31 @@ section[id] {
 }
 
 /* =====================  06 · ABOUT  ===================== */
+/* deliberate break in the section rhythm: no ghost numeral, no spine,
+   a large portrait sitting directly against the navy field with text alongside */
+.about__grid {
+  display: grid;
+  grid-template-columns: minmax(0, 0.82fr) minmax(0, 1.5fr);
+  column-gap: clamp(36px, 5vw, 88px);
+  align-items: start;
+}
+
+.about__portrait {
+  margin: 0;
+  position: sticky;
+  top: 96px;
+}
+
+.about__portrait img {
+  display: block;
+  width: 100%;
+  height: auto;
+}
+
+.about__content {
+  min-width: 0;
+}
+
 .about__subhead {
   max-width: 34ch;
   margin-top: 26px;
@@ -850,9 +875,15 @@ section[id] {
   .leaf,
   .toc__grid,
   .cover__statement,
+  .about__grid,
   .closing__grid {
     grid-template-columns: 1fr;
     row-gap: 26px;
+  }
+
+  .about__portrait {
+    position: static;
+    max-width: 320px;
   }
 
   .leaf::before {

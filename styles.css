@@ -9,10 +9,10 @@
   --graphite: #262b32;
   --stone: #736f67;
   --stone-soft: #a99f91;
-  --signal: #74d2d0;
-  --signal-dim: #335f64;
+  --signal: #C97B4A;
+  --signal-dim: #6e4327;
   --line: rgba(198, 207, 204, 0.16);
-  --line-strong: rgba(116, 210, 208, 0.42);
+  --line-strong: rgba(201, 123, 74, 0.42);
   --shadow: rgba(7, 11, 18, 0.54);
   --border-card: rgba(218, 224, 220, 0.048);
   --border-card-inner: rgba(218, 224, 220, 0.038);
@@ -53,7 +53,7 @@ body::before {
   z-index: -2;
   content: "";
   background:
-    linear-gradient(90deg, rgba(116, 210, 208, 0.012) 1px, transparent 1px),
+    linear-gradient(90deg, rgba(201, 123, 74, 0.012) 1px, transparent 1px),
     linear-gradient(180deg, rgba(231, 227, 216, 0.011) 1px, transparent 1px);
   background-size: 96px 96px;
   mask-image: linear-gradient(
@@ -73,7 +73,7 @@ body::after {
   background:
     radial-gradient(ellipse 120% 80% at 10% 20%, rgba(42, 48, 72, 0.22), transparent 55%),
     radial-gradient(ellipse 90% 70% at 88% 75%, rgba(30, 36, 52, 0.18), transparent 50%),
-    linear-gradient(128deg, rgba(116, 210, 208, 0.022), transparent 32%),
+    linear-gradient(128deg, rgba(201, 123, 74, 0.022), transparent 32%),
     linear-gradient(22deg, transparent 48%, rgba(161, 153, 140, 0.035) 72%, transparent 92%);
 }
 
@@ -260,7 +260,7 @@ main > .atmospheric-break {
 }
 
 .route-frame--lower {
-  stroke: rgba(116, 210, 208, 0.26);
+  stroke: rgba(201, 123, 74, 0.26);
   animation-delay: 520ms;
 }
 
@@ -375,7 +375,7 @@ main > .atmospheric-break {
   height: 1px;
   margin-left: 14px;
   content: "";
-  background: linear-gradient(90deg, rgba(116, 210, 208, 0.82), rgba(116, 210, 208, 0));
+  background: linear-gradient(90deg, rgba(201, 123, 74, 0.82), rgba(201, 123, 74, 0));
   transform-origin: left;
   transition: transform 300ms ease;
 }
@@ -414,7 +414,7 @@ main > .atmospheric-break {
 .text-link--hero:hover::after,
 .text-link--hero:focus-visible::after {
   transform: scaleX(1.22);
-  background: linear-gradient(90deg, rgba(116, 210, 208, 0.55), rgba(116, 210, 208, 0));
+  background: linear-gradient(90deg, rgba(201, 123, 74, 0.55), rgba(201, 123, 74, 0));
 }
 
 .intro-band {
@@ -432,7 +432,7 @@ main > .atmospheric-break {
   width: min(var(--max), calc(100% - (var(--gutter) * 2)));
   height: 1px;
   content: "";
-  background: linear-gradient(90deg, transparent, rgba(116, 210, 208, 0.28), transparent);
+  background: linear-gradient(90deg, transparent, rgba(201, 123, 74, 0.28), transparent);
   transform: translateX(-50%);
 }
 
@@ -495,7 +495,7 @@ main > .atmospheric-break {
   height: 7px;
   margin-top: 0.4em;
   flex-shrink: 0;
-  border: 1px solid rgba(116, 210, 208, 0.72);
+  border: 1px solid rgba(201, 123, 74, 0.72);
   border-radius: 50%;
   content: "";
 }
@@ -901,7 +901,7 @@ main > .atmospheric-break {
 }
 
 .method-path--guide {
-  stroke: rgba(116, 210, 208, 0.34);
+  stroke: rgba(201, 123, 74, 0.34);
   transition-delay: 0.05s;
 }
 
@@ -1187,10 +1187,10 @@ main > .atmospheric-break {
   width: 100%;
   min-height: 48px;
   margin-top: 28px;
-  border: 1px solid rgba(116, 210, 208, 0.38);
+  border: 1px solid rgba(201, 123, 74, 0.38);
   border-radius: var(--radius);
   color: var(--field);
-  background: linear-gradient(90deg, rgba(116, 210, 208, 0.92), rgba(154, 211, 202, 0.9));
+  background: linear-gradient(90deg, rgba(201, 123, 74, 0.92), rgba(223, 159, 112, 0.9));
   font-size: 0.95rem;
   font-weight: 650;
   transition:

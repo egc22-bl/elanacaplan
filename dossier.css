@@ -16,11 +16,11 @@
   --graphite: #262b32;
   --stone: #736f67;
   --stone-soft: #a99f91;
-  --signal: #74d2d0;
-  --signal-dim: #335f64;
+  --signal: #C97B4A;
+  --signal-dim: #6e4327;
   --line: rgba(198, 207, 204, 0.16);
   --line-soft: rgba(198, 207, 204, 0.09);
-  --line-strong: rgba(116, 210, 208, 0.42);
+  --line-strong: rgba(201, 123, 74, 0.42);
   --shadow: rgba(7, 11, 18, 0.54);
 
   --doc-max: 1320px;
@@ -64,7 +64,7 @@ body::before {
   z-index: -2;
   content: "";
   background:
-    linear-gradient(90deg, rgba(116, 210, 208, 0.014) 1px, transparent 1px),
+    linear-gradient(90deg, rgba(201, 123, 74, 0.014) 1px, transparent 1px),
     linear-gradient(180deg, rgba(231, 227, 216, 0.012) 1px, transparent 1px);
   background-size: 64px 64px;
   mask-image: linear-gradient(
@@ -84,7 +84,7 @@ body::after {
   background:
     radial-gradient(ellipse 120% 80% at 10% 20%, rgba(42, 48, 72, 0.22), transparent 55%),
     radial-gradient(ellipse 90% 70% at 88% 75%, rgba(30, 36, 52, 0.18), transparent 50%),
-    linear-gradient(128deg, rgba(116, 210, 208, 0.022), transparent 32%),
+    linear-gradient(128deg, rgba(201, 123, 74, 0.022), transparent 32%),
     linear-gradient(22deg, transparent 48%, rgba(161, 153, 140, 0.035) 72%, transparent 92%);
 }
 
@@ -547,7 +547,7 @@ section[id] {
 }
 
 .ledger__row:hover {
-  background: linear-gradient(90deg, rgba(116, 210, 208, 0.03), transparent 60%);
+  background: linear-gradient(90deg, rgba(201, 123, 74, 0.03), transparent 60%);
 }
 
 .ledger__num {

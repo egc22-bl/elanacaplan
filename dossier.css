@@ -556,66 +556,6 @@ section[id] {
 }
 
 /* =====================  03 · METHOD  ===================== */
-.method-plate {
-  position: relative;
-  margin-top: clamp(36px, 5vw, 60px);
-  aspect-ratio: 16 / 6;
-  border: 1px solid var(--line);
-  overflow: hidden;
-  background: var(--field-deep);
-}
-
-.method-plate__media {
-  position: absolute;
-  inset: -6% -3%;
-  background-image: url("assets/elanacaplan-architectural-corridor.png");
-  background-size: cover;
-  background-position: 78% 38%;
-  opacity: 0.24;
-  filter: saturate(0.45) brightness(0.44) contrast(1.05);
-}
-
-.method-plate__scrim {
-  position: absolute;
-  inset: 0;
-  background:
-    radial-gradient(ellipse 80% 120% at 15% 30%, rgba(18, 23, 34, 0.2), transparent 60%),
-    linear-gradient(90deg, rgba(16, 21, 31, 0.4), transparent 55%);
-}
-
-.method-plate svg {
-  position: relative;
-  width: 100%;
-  height: 100%;
-}
-
-.method-path {
-  fill: none;
-  stroke-linecap: round;
-}
-
-.method-path--guide {
-  stroke: rgba(198, 207, 204, 0.16);
-  stroke-width: 1;
-}
-
-.method-path--frame {
-  stroke: rgba(198, 207, 204, 0.12);
-  stroke-width: 1;
-}
-
-.method-path--diagonal {
-  stroke: var(--signal);
-  stroke-width: 1.5;
-  opacity: 0.6;
-}
-
-.method-path--return {
-  stroke: var(--stone-soft);
-  stroke-width: 1;
-  opacity: 0.5;
-}
-
 .steps {
   margin-top: clamp(40px, 5vw, 60px);
   display: grid;

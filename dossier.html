@@ -9,7 +9,7 @@
     />
     <title>Elana Caplan | Diagnostic and Fractional COO Leadership</title>
     <link rel="icon" type="image/svg+xml" href="/favicon.svg" />
-    <link rel="stylesheet" href="dossier.css" />
+    <link rel="stylesheet" href="dossier.css?v=2" />
   </head>
   <body>
     <div class="doc">
@@ -72,32 +72,32 @@
             <div class="toc__list">
               <a class="toc__row" href="#friction">
                 <span class="toc__num">01</span>
-                <span class="toc__name">What operational friction looks like</span>
+                <span class="toc__name">The Pattern — what the friction actually looks like, deal by deal</span>
                 <span class="toc__go">&rarr;</span>
               </a>
               <a class="toc__row" href="#why">
                 <span class="toc__num">02</span>
-                <span class="toc__name">Why This Approach</span>
+                <span class="toc__name">Why This Approach — who these leaders are, and why the obvious fixes don't hold</span>
                 <span class="toc__go">&rarr;</span>
               </a>
               <a class="toc__row" href="#help">
                 <span class="toc__num">03</span>
-                <span class="toc__name">How I Help</span>
+                <span class="toc__name">How I Help — diagnose, design, own</span>
                 <span class="toc__go">&rarr;</span>
               </a>
               <a class="toc__row" href="#engage">
                 <span class="toc__num">04</span>
-                <span class="toc__name">How I Engage</span>
+                <span class="toc__name">How I Engage — two ways to work together, from short diagnostic to full build</span>
                 <span class="toc__go">&rarr;</span>
               </a>
               <a class="toc__row" href="#work">
                 <span class="toc__num">05</span>
-                <span class="toc__name">Selected Work</span>
+                <span class="toc__name">Selected Work — three engagements, the issue underneath each one</span>
                 <span class="toc__go">&rarr;</span>
               </a>
               <a class="toc__row" href="#about">
                 <span class="toc__num">06</span>
-                <span class="toc__name">About <span class="brand-mark">ELANA</span></span>
+                <span class="toc__name">About <span class="brand-mark">Elana</span></span>
                 <span class="toc__go">&rarr;</span>
               </a>
             </div>
@@ -109,6 +109,7 @@
           <div class="wrap leaf">
             <div class="rail-index" data-reveal>
               <span class="rail-index__num">01</span>
+              <span class="rail-index__tag">The Pattern</span>
             </div>
             <div class="chapter__body">
               <div class="chapter__head">
@@ -146,7 +147,7 @@
             <div class="chapter__body">
               <div class="chapter__head">
                 <h2 id="why-title" data-reveal>
-                  Scaling companies carrying complexity their current operating model can no longer hold.
+                  Complexity outpaces the model.
                 </h2>
               </div>
               <div class="prose" data-reveal>
@@ -157,7 +158,7 @@
                   Leaders are great at diagnosing their pain. They're not great at diagnosing what's causing it. The pain is the symptom. The operational breakdown underneath is the cause, and that's the part I go after.
                 </p>
                 <p>
-                  I work with scaling B2B companies where cross-functional complexity has outpaced the operating model.
+                  The leaders I work with are at the edge of something. A reorg. A headcount that doubled in a year. A business that just closed a round and outgrew the way it used to run. How they worked before doesn't work anymore, and they know it before they can name why.
                 </p>
                 <p>
                   A missed handoff, delayed decision, stalled lead, or broken workflow
@@ -418,12 +419,13 @@
               </div>
               <div class="prose" data-reveal>
                 <p>
-                  Here's what I do. I help scaling companies and teams figure out
-                  what's actually slowing execution down, which is almost never the
-                  thing they call me about. I get the right people aligned on the real
-                  problem, then build the systems and workflows the business needs next.
-                  Then I hand it off and walk away. The work isn't done until someone inside
-                  can run it without me.
+                  Companies call me about the thing that's visible. A stalled deal, a
+                  broken handoff, a rollout that stopped working. It's almost never the
+                  actual problem. I get the right people looking at the real one. Sometimes
+                  that's the whole engagement, a clear, evidenced answer to what's actually
+                  wrong. When it goes further, I build what the business needs next, then
+                  hand it off. Either way, the work isn't finished until whoever's holding it
+                  can run it without me in the room.
                 </p>
                 <p>
                   This grew out of two decades inside fast-moving, regulated businesses.
@@ -462,7 +464,7 @@
             <p class="kicker" data-reveal>Start with a diagnostic conversation</p>
             <div class="closing__body">
               <h2 id="cta-title" data-reveal>Start with the real issue.</h2>
-              <a class="primary-action" href="mailto:elana@elanacaplan.com" data-reveal>Start a diagnostic conversation</a>
+              <button class="primary-action" type="button" data-open-contact data-reveal>Start a diagnostic conversation</button>
             </div>
           </div>
         </section>
@@ -483,6 +485,59 @@
       </footer>
     </div>
 
-    <script src="script.js"></script>
+    <div class="contact-modal" id="contact-modal" hidden>
+      <div class="contact-modal__backdrop" data-close-contact></div>
+      <div
+        class="contact-modal__dialog"
+        role="dialog"
+        aria-modal="true"
+        aria-labelledby="contact-modal-title"
+      >
+        <button
+          class="contact-modal__close"
+          type="button"
+          data-close-contact
+          aria-label="Close"
+        >
+          &times;
+        </button>
+        <p class="contact-modal__kicker">Start with a diagnostic conversation</p>
+        <h2 class="contact-modal__title" id="contact-modal-title">
+          Start with the real issue.
+        </h2>
+        <p class="contact-modal__lede">
+          Tell me a little about what's going on. I read every message myself.
+        </p>
+
+        <form class="contact-form" data-contact-form novalidate>
+          <input type="hidden" name="access_key" value="YOUR_WEB3FORMS_ACCESS_KEY" />
+          <input type="hidden" name="subject" value="New diagnostic inquiry from elanacaplan.com" />
+          <input type="checkbox" name="botcheck" class="contact-form__honeypot" tabindex="-1" autocomplete="off" />
+
+          <label class="contact-field">
+            <span class="contact-field__label">Name</span>
+            <input class="contact-field__input" type="text" name="name" required autocomplete="name" />
+          </label>
+
+          <label class="contact-field">
+            <span class="contact-field__label">Email</span>
+            <input class="contact-field__input" type="email" name="email" required autocomplete="email" />
+          </label>
+
+          <label class="contact-field">
+            <span class="contact-field__label">What's going on</span>
+            <textarea class="contact-field__input contact-field__textarea" name="message" rows="4" required></textarea>
+          </label>
+
+          <button class="primary-action contact-form__submit" type="submit">
+            Send
+          </button>
+
+          <p class="contact-form__status" data-contact-status role="status" aria-live="polite"></p>
+        </form>
+      </div>
+    </div>
+
+    <script src="script.js?v=2"></script>
   </body>
 </html>

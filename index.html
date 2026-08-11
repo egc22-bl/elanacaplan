@@ -5,39 +5,33 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <meta
       name="description"
-      content="Operational diagnostics for fintech and payments companies. I find why execution stalls between teams, then build the structure that fixes it."
+      content="Operational diagnostics for fintech and payments."
     />
     <link rel="canonical" href="https://www.elanacaplan.com/" />
-    <meta
-      property="og:title"
-      content="Elana Caplan — Operational Diagnostics for Fintech and Payments"
-    />
+    <meta property="og:title" content="Elana Caplan" />
     <meta
       property="og:description"
-      content="Operational diagnostics for fintech and payments companies. I find why execution stalls between teams, then build the structure that fixes it."
+      content="Operational diagnostics for fintech and payments."
     />
-    <meta property="og:image" content="https://www.elanacaplan.com/public/static/og-social-v2.png" />
-    <meta property="og:image:secure_url" content="https://www.elanacaplan.com/public/static/og-social-v2.png" />
+    <meta property="og:image" content="https://www.elanacaplan.com/public/static/og-social-v4.png" />
+    <meta property="og:image:secure_url" content="https://www.elanacaplan.com/public/static/og-social-v4.png" />
     <meta property="og:image:width" content="1200" />
     <meta property="og:image:height" content="630" />
     <meta
       property="og:image:alt"
-      content="Elana Caplan — Operational Diagnostics for Fintech and Payments"
+      content="Elana Caplan — Operational diagnostics for fintech and payments"
     />
     <meta property="og:type" content="website" />
     <meta property="og:url" content="https://www.elanacaplan.com/" />
     <meta name="twitter:card" content="summary_large_image" />
-    <meta
-      name="twitter:title"
-      content="Elana Caplan — Operational Diagnostics for Fintech and Payments"
-    />
+    <meta name="twitter:title" content="Elana Caplan" />
     <meta
       name="twitter:description"
-      content="Operational diagnostics for fintech and payments companies. I find why execution stalls between teams, then build the structure that fixes it."
+      content="Operational diagnostics for fintech and payments."
     />
-    <meta name="twitter:image" content="https://www.elanacaplan.com/public/static/og-social-v2.png" />
+    <meta name="twitter:image" content="https://www.elanacaplan.com/public/static/og-social-v4.png" />
     <title>Elana Caplan — Operational Diagnostics for Fintech and Payments</title>
-    <link rel="icon" type="image/svg+xml" href="/favicon.svg" />
+    <link rel="icon" type="image/svg+xml" href="/favicon.svg?v=2" />
     <link rel="preconnect" href="https://fonts.googleapis.com" />
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
     <link
@@ -49,7 +43,7 @@
       rel="stylesheet"
       href="https://fonts.googleapis.com/css2?family=Bricolage+Grotesque:opsz,wght@12..96,600;12..96,700&family=IBM+Plex+Mono:wght@400;500&family=Source+Serif+4:opsz,wght@8..60,400;8..60,600&display=swap"
     />
-    <link rel="stylesheet" href="site.css?v=12" />
+    <link rel="stylesheet" href="site.css?v=15" />
   </head>
   <body>
     <div class="progress-bar" data-progress-bar aria-hidden="true">
@@ -308,105 +302,48 @@
               >Same finding, same team, no room left to act on it</text>
             </svg>
 
-            <svg
-              class="deal-diagram__svg deal-diagram__svg--v"
-              viewBox="0 0 280 560"
-              width="280"
-              height="560"
-              role="img"
-              aria-hidden="true"
-            >
-              <g
-                fill="#4A5257"
-                font-family="IBM Plex Mono, ui-monospace, monospace"
-                font-size="11"
-                font-weight="500"
-                letter-spacing="1.5"
-              >
-                <text x="36" y="28">QUALIFY</text>
-                <text x="36" y="118">SCOPE</text>
-                <text x="36" y="208">TERMS</text>
-                <text x="36" y="298">CONTRACT</text>
-                <text x="36" y="468">CLOSE</text>
-              </g>
+            <!-- Mobile: two short paths, no scaled SVG -->
+            <div class="deal-diagram__mobile" aria-hidden="true">
+              <div class="dd-path dd-path--early">
+                <p class="mono-label dd-path__label">Early engagement</p>
+                <p class="dd-path__hit">
+                  <span class="dd-path__hit-mark">Risk engaged</span>
+                  at Qualify
+                </p>
+                <p class="dd-path__flow">
+                  <span>Qualify</span>
+                  <span aria-hidden="true">→</span>
+                  <span>Scope</span>
+                  <span aria-hidden="true">→</span>
+                  <span>Terms</span>
+                  <span aria-hidden="true">→</span>
+                  <span>Contract</span>
+                  <span aria-hidden="true">→</span>
+                  <span>Close</span>
+                </p>
+                <p class="dd-path__caption">Constraint surfaces while the deal can still absorb it</p>
+              </div>
 
-              <line
-                class="diagram-line diagram-line--correct"
-                data-draw-v="top"
-                x1="18"
-                y1="32"
-                x2="18"
-                y2="472"
-                stroke="#2447F0"
-                stroke-width="2"
-              />
-              <rect x="15" y="29" width="6" height="6" fill="#2447F0" />
-              <text
-                x="36"
-                y="24"
-                fill="#101619"
-                font-family="IBM Plex Mono, ui-monospace, monospace"
-                font-size="10"
-                font-weight="500"
-                letter-spacing="1.2"
-              >RISK ENGAGED</text>
-              <text
-                x="36"
-                y="52"
-                fill="#4A5257"
-                font-family="IBM Plex Mono, ui-monospace, monospace"
-                font-size="10"
-                letter-spacing="0.4"
-              >Constraint surfaces while the deal can still absorb it</text>
-
-              <line
-                class="diagram-line diagram-line--ink"
-                data-draw-v="bottom-a"
-                x1="160"
-                y1="32"
-                x2="160"
-                y2="298"
-                stroke="#101619"
-                stroke-width="2"
-              />
-              <line
-                class="diagram-line diagram-line--ink"
-                data-draw-v="bottom-b"
-                x1="160"
-                y1="388"
-                x2="160"
-                y2="472"
-                stroke="#101619"
-                stroke-width="2"
-              />
-              <rect x="157" y="295" width="6" height="6" fill="#101619" />
-              <text
-                x="178"
-                y="318"
-                fill="#101619"
-                font-family="IBM Plex Mono, ui-monospace, monospace"
-                font-size="10"
-                font-weight="500"
-                letter-spacing="1.2"
-              >RISK ENGAGED</text>
-              <text
-                x="178"
-                y="360"
-                fill="#4A5257"
-                font-family="IBM Plex Mono, ui-monospace, monospace"
-                font-size="10"
-                font-weight="500"
-                letter-spacing="1.2"
-              >SIX WEEKS</text>
-              <text
-                x="36"
-                y="520"
-                fill="#4A5257"
-                font-family="IBM Plex Mono, ui-monospace, monospace"
-                font-size="10"
-                letter-spacing="0.4"
-              >Same finding, same team, no room left to act on it</text>
-            </svg>
+              <div class="dd-path dd-path--late">
+                <p class="mono-label dd-path__label">Late engagement</p>
+                <p class="dd-path__hit">
+                  <span class="dd-path__hit-mark">Risk engaged</span>
+                  at Contract · six weeks later
+                </p>
+                <p class="dd-path__flow">
+                  <span>Qualify</span>
+                  <span aria-hidden="true">→</span>
+                  <span>Scope</span>
+                  <span aria-hidden="true">→</span>
+                  <span>Terms</span>
+                  <span aria-hidden="true">→</span>
+                  <span class="is-hit">Contract</span>
+                  <span aria-hidden="true">→</span>
+                  <span>Close</span>
+                </p>
+                <p class="dd-path__caption">Same finding, same team, no room left to act on it</p>
+              </div>
+            </div>
           </figure>
         </div>
       </section>

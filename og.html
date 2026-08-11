@@ -1,0 +1,94 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <title>OG — Elana Caplan</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Bricolage+Grotesque:opsz,wght@12..96,700&family=IBM+Plex+Mono:wght@500&display=swap"
+      rel="stylesheet"
+    />
+    <style>
+      * {
+        box-sizing: border-box;
+        margin: 0;
+        padding: 0;
+      }
+      html,
+      body {
+        width: 1200px;
+        height: 630px;
+        overflow: hidden;
+        background: #16262b;
+        color: #dfe4e0;
+      }
+      .card {
+        width: 1200px;
+        height: 630px;
+        padding: 0 96px 0 112px;
+        position: relative;
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
+      }
+      .rail {
+        position: absolute;
+        left: 56px;
+        top: 96px;
+        bottom: 96px;
+        width: 1px;
+        background: #2c3d42;
+      }
+      .rail::before {
+        content: "";
+        position: absolute;
+        left: -2.5px;
+        top: 0;
+        width: 6px;
+        height: 6px;
+        background: #2447f0;
+      }
+      .brand {
+        font-family: "Bricolage Grotesque", sans-serif;
+        font-weight: 700;
+        font-size: 72px;
+        letter-spacing: -0.03em;
+        line-height: 1;
+        color: #dfe4e0;
+        margin-bottom: 28px;
+      }
+      .scope {
+        font-family: "IBM Plex Mono", ui-monospace, monospace;
+        font-size: 17px;
+        font-weight: 500;
+        letter-spacing: 0.1em;
+        text-transform: uppercase;
+        color: rgba(223, 228, 224, 0.62);
+        white-space: nowrap;
+        line-height: 1.45;
+      }
+      .url {
+        position: absolute;
+        left: 112px;
+        bottom: 72px;
+        font-family: "IBM Plex Mono", ui-monospace, monospace;
+        font-size: 15px;
+        font-weight: 500;
+        letter-spacing: 0.14em;
+        text-transform: uppercase;
+        color: #dfe4e0;
+        border-bottom: 2px solid #2447f0;
+        padding-bottom: 4px;
+      }
+    </style>
+  </head>
+  <body>
+    <div class="card">
+      <div class="rail" aria-hidden="true"></div>
+      <p class="brand">Elana Caplan</p>
+      <p class="scope">Operational diagnostics · Fintech and payments</p>
+      <span class="url">elanacaplan.com</span>
+    </div>
+  </body>
+</html>

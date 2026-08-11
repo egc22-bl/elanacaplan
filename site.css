@@ -537,6 +537,7 @@ a:hover {
   margin: 0;
   padding-top: 0.5rem;
   min-width: 0;
+  width: 100%;
 }
 
 .deal-diagram__svg {
@@ -547,7 +548,7 @@ a:hover {
   overflow: hidden;
 }
 
-.deal-diagram__svg--v {
+.deal-diagram__mobile {
   display: none;
 }
 
@@ -556,42 +557,103 @@ a:hover {
   stroke-linecap: butt;
 }
 
-.deal-diagram.is-animating .diagram-line[data-draw="top"],
-.deal-diagram.is-animating .diagram-line[data-draw-v="top"] {
+.deal-diagram.is-animating .diagram-line[data-draw="top"] {
   transition: stroke-dashoffset 900ms ease;
   stroke-dashoffset: 0 !important;
 }
 
-.deal-diagram.is-animating .diagram-line[data-draw="bottom-a"],
-.deal-diagram.is-animating .diagram-line[data-draw-v="bottom-a"] {
+.deal-diagram.is-animating .diagram-line[data-draw="bottom-a"] {
   transition: stroke-dashoffset 700ms ease 950ms;
   stroke-dashoffset: 0 !important;
 }
 
-.deal-diagram.is-animating .diagram-line[data-draw="bottom-b"],
-.deal-diagram.is-animating .diagram-line[data-draw-v="bottom-b"] {
+.deal-diagram.is-animating .diagram-line[data-draw="bottom-b"] {
   transition: stroke-dashoffset 400ms ease 1950ms;
   stroke-dashoffset: 0 !important;
 }
 
-@media (max-width: 719px) {
-  .why__grid {
-    grid-template-columns: 1fr;
-    padding-left: 0;
-  }
-
-  .deal-diagram__svg--h {
-    display: none;
-  }
-
-  .deal-diagram__svg--v {
-    display: block;
-  }
+/* Mobile diagram: plain comparison, no scaled SVG */
+.dd-path {
+  margin: 0 0 2.25rem;
+  padding: 0.1rem 0 0.1rem 1.1rem;
+  border-left: 2px solid var(--ink);
 }
 
-@media (min-width: 720px) and (max-width: 980px) {
+.dd-path:last-child {
+  margin-bottom: 0;
+}
+
+.dd-path--early {
+  border-left-color: var(--accent);
+}
+
+.dd-path__label {
+  margin: 0 0 0.75rem;
+}
+
+.dd-path__hit {
+  margin: 0 0 0.65rem;
+  font-family: var(--font-mono);
+  font-size: 13px;
+  font-weight: 500;
+  letter-spacing: 0.04em;
+  line-height: 1.45;
+  color: var(--ink);
+}
+
+.dd-path__hit-mark {
+  text-transform: uppercase;
+  letter-spacing: 0.12em;
+}
+
+.dd-path--early .dd-path__hit-mark {
+  color: var(--accent);
+}
+
+.dd-path__flow {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  column-gap: 0.4rem;
+  row-gap: 0.25rem;
+  margin: 0 0 0.85rem;
+  font-family: var(--font-mono);
+  font-size: 11px;
+  font-weight: 500;
+  letter-spacing: 0.1em;
+  text-transform: uppercase;
+  line-height: 1.4;
+  color: var(--ink-soft);
+}
+
+.dd-path__flow .is-hit {
+  color: var(--ink);
+}
+
+.dd-path__caption {
+  margin: 0;
+  font-size: 15px;
+  line-height: 1.4;
+  color: var(--ink-soft);
+  max-width: 32ch;
+}
+
+@media (max-width: 900px) {
   .why__grid {
     grid-template-columns: 1fr;
+  }
+
+  .deal-diagram__svg,
+  .deal-diagram__svg--h,
+  .deal-diagram__svg--v {
+    display: none !important;
+  }
+
+  .deal-diagram__mobile {
+    display: block;
+    width: 100%;
+    max-width: 28rem;
+    margin-top: 0.25rem;
   }
 }
 

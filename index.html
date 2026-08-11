@@ -49,7 +49,7 @@
       rel="stylesheet"
       href="https://fonts.googleapis.com/css2?family=Bricolage+Grotesque:opsz,wght@12..96,600;12..96,700&family=IBM+Plex+Mono:wght@400;500&family=Source+Serif+4:opsz,wght@8..60,400;8..60,600&display=swap"
     />
-    <link rel="stylesheet" href="site.css?v=11" />
+    <link rel="stylesheet" href="site.css?v=12" />
   </head>
   <body>
     <div class="progress-bar" data-progress-bar aria-hidden="true">
@@ -120,7 +120,7 @@
             I diagnose why execution breaks down between teams in scaling payments companies, then build the operating structure that fixes it.
           </p>
           <p class="hero__cred" data-reveal>
-            Square, Afterpay, and American Express from the inside. Banks, card networks, and payments infrastructure from the outside.
+            Square, Afterpay and American Express from the inside. Banks, card networks and payments infrastructure from the outside.
           </p>
           <a class="text-link hero__cta" href="#contact" data-reveal>Start with the real issue</a>
           </div>
@@ -191,12 +191,13 @@
 
             <svg
               class="deal-diagram__svg deal-diagram__svg--h"
-              viewBox="0 0 640 300"
+              viewBox="0 0 640 340"
               width="640"
-              height="300"
+              height="340"
               role="img"
               aria-hidden="true"
             >
+              <!-- Stages: 40 · 175 · 310 · 445 · 580 -->
               <g fill="none" stroke="#C6CAC3" stroke-width="1">
                 <line x1="40" y1="22" x2="40" y2="34" />
                 <line x1="175" y1="22" x2="175" y2="34" />
@@ -219,21 +220,21 @@
                 <text x="580" y="52">CLOSE</text>
               </g>
 
-              <!-- Top track -->
+              <!-- Top track: unbroken, Qualify → Close -->
               <line
                 class="diagram-line diagram-line--correct"
                 data-draw="top"
                 x1="40"
-                y1="88"
+                y1="96"
                 x2="580"
-                y2="88"
+                y2="96"
                 stroke="#2447F0"
                 stroke-width="2"
               />
-              <rect x="37" y="85" width="6" height="6" fill="#2447F0" />
+              <rect x="37" y="93" width="6" height="6" fill="#2447F0" />
               <text
                 x="48"
-                y="78"
+                y="86"
                 fill="#101619"
                 font-family="IBM Plex Mono, ui-monospace, monospace"
                 font-size="10"
@@ -242,48 +243,43 @@
               >RISK ENGAGED</text>
               <text
                 x="40"
-                y="112"
+                y="122"
                 fill="#4A5257"
                 font-family="IBM Plex Mono, ui-monospace, monospace"
                 font-size="10"
                 letter-spacing="0.6"
               >Constraint surfaces while the deal can still absorb it</text>
 
-              <!-- Bottom track with 90px gap centered on Contract (445) -->
+              <!--
+                Bottom track: same start/end (40→580).
+                Solid to CONTRACT marker, then 90px gap, then resume to CLOSE.
+                Gap: 445–535. SIX WEEKS alone at gap centre (490).
+                RISK ENGAGED below the CONTRACT marker.
+              -->
               <line
                 class="diagram-line diagram-line--ink"
                 data-draw="bottom-a"
                 x1="40"
-                y1="200"
-                x2="400"
-                y2="200"
+                y1="250"
+                x2="445"
+                y2="250"
                 stroke="#101619"
                 stroke-width="2"
               />
               <line
                 class="diagram-line diagram-line--ink"
                 data-draw="bottom-b"
-                x1="490"
-                y1="200"
+                x1="535"
+                y1="250"
                 x2="580"
-                y2="200"
+                y2="250"
                 stroke="#101619"
                 stroke-width="2"
               />
-              <rect x="442" y="197" width="6" height="6" fill="#101619" />
+              <rect x="442" y="247" width="6" height="6" fill="#101619" />
               <text
-                x="445"
-                y="190"
-                fill="#101619"
-                font-family="IBM Plex Mono, ui-monospace, monospace"
-                font-size="10"
-                font-weight="500"
-                letter-spacing="1.2"
-                text-anchor="middle"
-              >RISK ENGAGED</text>
-              <text
-                x="445"
-                y="204"
+                x="490"
+                y="254"
                 fill="#4A5257"
                 font-family="IBM Plex Mono, ui-monospace, monospace"
                 font-size="10"
@@ -293,8 +289,18 @@
                 dominant-baseline="middle"
               >SIX WEEKS</text>
               <text
+                x="445"
+                y="276"
+                fill="#101619"
+                font-family="IBM Plex Mono, ui-monospace, monospace"
+                font-size="10"
+                font-weight="500"
+                letter-spacing="1.2"
+                text-anchor="middle"
+              >RISK ENGAGED</text>
+              <text
                 x="40"
-                y="236"
+                y="310"
                 fill="#4A5257"
                 font-family="IBM Plex Mono, ui-monospace, monospace"
                 font-size="10"
@@ -304,9 +310,9 @@
 
             <svg
               class="deal-diagram__svg deal-diagram__svg--v"
-              viewBox="0 0 280 520"
+              viewBox="0 0 280 560"
               width="280"
-              height="520"
+              height="560"
               role="img"
               aria-hidden="true"
             >
@@ -321,7 +327,7 @@
                 <text x="36" y="118">SCOPE</text>
                 <text x="36" y="208">TERMS</text>
                 <text x="36" y="298">CONTRACT</text>
-                <text x="36" y="448">CLOSE</text>
+                <text x="36" y="468">CLOSE</text>
               </g>
 
               <line
@@ -330,14 +336,14 @@
                 x1="18"
                 y1="32"
                 x2="18"
-                y2="452"
+                y2="472"
                 stroke="#2447F0"
                 stroke-width="2"
               />
               <rect x="15" y="29" width="6" height="6" fill="#2447F0" />
               <text
                 x="36"
-                y="48"
+                y="24"
                 fill="#101619"
                 font-family="IBM Plex Mono, ui-monospace, monospace"
                 font-size="10"
@@ -346,7 +352,7 @@
               >RISK ENGAGED</text>
               <text
                 x="36"
-                y="66"
+                y="52"
                 fill="#4A5257"
                 font-family="IBM Plex Mono, ui-monospace, monospace"
                 font-size="10"
@@ -356,26 +362,26 @@
               <line
                 class="diagram-line diagram-line--ink"
                 data-draw-v="bottom-a"
-                x1="150"
+                x1="160"
                 y1="32"
-                x2="150"
-                y2="280"
+                x2="160"
+                y2="298"
                 stroke="#101619"
                 stroke-width="2"
               />
               <line
                 class="diagram-line diagram-line--ink"
                 data-draw-v="bottom-b"
-                x1="150"
-                y1="370"
-                x2="150"
-                y2="452"
+                x1="160"
+                y1="388"
+                x2="160"
+                y2="472"
                 stroke="#101619"
                 stroke-width="2"
               />
-              <rect x="147" y="321" width="6" height="6" fill="#101619" />
+              <rect x="157" y="295" width="6" height="6" fill="#101619" />
               <text
-                x="166"
+                x="178"
                 y="318"
                 fill="#101619"
                 font-family="IBM Plex Mono, ui-monospace, monospace"
@@ -384,8 +390,8 @@
                 letter-spacing="1.2"
               >RISK ENGAGED</text>
               <text
-                x="166"
-                y="342"
+                x="178"
+                y="360"
                 fill="#4A5257"
                 font-family="IBM Plex Mono, ui-monospace, monospace"
                 font-size="10"
@@ -394,7 +400,7 @@
               >SIX WEEKS</text>
               <text
                 x="36"
-                y="490"
+                y="520"
                 fill="#4A5257"
                 font-family="IBM Plex Mono, ui-monospace, monospace"
                 font-size="10"
@@ -612,13 +618,10 @@
                 Companies call me about the visible thing: a stalled deal, a broken handoff, a rollout that stopped working. My job is to get the right people looking at the real one.
               </p>
               <p>
-                Twenty years in payments. I started at TD and American Express, spent ten years running my own advisory for global card networks, major North American banks and payments infrastructure companies operating in or entering Canada, then went back inside for Afterpay and Square.
+                Twenty years in payments, at TD, American Express, Afterpay and Square, and a decade in between running my own advisory for card networks, North American banks and payments infrastructure companies operating in Canada.
               </p>
               <p>
-                Across all of it I sat at the point every commercial deal had to clear. At American Express I was on the leadership teams for commercial card and business travel, working inside sales, partnerships and marketing rather than adjacent to them.
-              </p>
-              <p>
-                Through the independent years I was doing the same thing for other people's businesses, which is where I learned what the pattern looks like when it isn't your own company's furniture. At Afterpay I led the largest merchant and partner negotiations, built the deal infrastructure from nothing, and sat on the Canadian board through registration under the Retail Payments Activities Act. At Square I did the same across a global platform with a team of eleven across three continents, then moved into the go-to-market organization to work on execution directly.
+                Across all of it I sat at the point every commercial deal had to clear. At American Express that meant the leadership teams for commercial card and business travel. Afterpay was the largest merchant and partner negotiations, the deal infrastructure built from nothing, and a seat on the Canadian board through registration under the Retail Payments Activities Act. By Square I was doing the same across a global platform, until I moved into the go-to-market organization to work on execution directly.
               </p>
               <p>
                 That position teaches you something you can't learn from inside a single function. When every deal, exception and escalation routes through you, individual problems stop looking individual. You start noticing that the same handoff has failed the same way for two years, that a workaround someone improvised in 2021 has quietly become load-bearing, and that nobody can any longer explain why a particular rule exists.

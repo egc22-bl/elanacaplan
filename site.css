@@ -416,7 +416,15 @@ a:hover {
   white-space: nowrap;
 }
 
+.hero__br {
+  display: none;
+}
+
 @media (max-width: 520px) {
+  .hero__br {
+    display: block;
+  }
+
   .hero__line {
     white-space: normal;
   }
@@ -999,6 +1007,102 @@ a:hover {
 
 .site-footer__meta {
   margin: 0;
+}
+
+/* ----- legal pages ----- */
+.site--legal {
+  min-height: 100vh;
+  display: flex;
+  flex-direction: column;
+}
+
+.legal-top {
+  padding: 1.25rem 0;
+  border-bottom: 1px solid var(--rule);
+}
+
+.legal-top__inner {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 1rem;
+}
+
+.legal-top__back {
+  text-decoration: none;
+}
+
+.legal-top__back:hover {
+  text-decoration: underline;
+  text-decoration-color: var(--accent);
+}
+
+.legal-page {
+  flex: 1;
+  padding: clamp(48px, 8vw, 96px) 0 clamp(64px, 10vw, 120px);
+}
+
+.legal-page__inner {
+  max-width: 40rem;
+}
+
+.legal-page__header {
+  margin-bottom: 2.5rem;
+}
+
+.legal-page__title {
+  margin: 0.65rem 0 1rem;
+  font-family: var(--font-display);
+  font-weight: 700;
+  font-size: clamp(32px, 5vw, 48px);
+  letter-spacing: -0.03em;
+  line-height: 1.1;
+}
+
+.legal-page__effective {
+  margin: 0;
+}
+
+.legal-page__prose {
+  max-width: var(--measure);
+}
+
+.legal-page__prose > p,
+.legal-page__prose section > p {
+  margin: 0 0 1.15rem;
+  font-size: 17px;
+  line-height: 1.62;
+  color: var(--ink);
+}
+
+.legal-page__prose section {
+  margin-top: 2.25rem;
+}
+
+.legal-page__prose h2 {
+  margin: 0 0 0.85rem;
+  font-family: var(--font-display);
+  font-weight: 700;
+  font-size: clamp(22px, 2.8vw, 28px);
+  letter-spacing: -0.02em;
+  line-height: 1.15;
+}
+
+.legal-page__prose a {
+  text-decoration: underline;
+  text-decoration-color: color-mix(in srgb, var(--accent) 55%, transparent);
+  text-underline-offset: 0.22em;
+}
+
+.legal-page__prose a:hover {
+  text-decoration-color: var(--accent);
+  text-decoration-thickness: 2px;
+}
+
+.site-footer__links a[aria-current="page"] {
+  text-decoration: underline;
+  text-decoration-color: var(--accent);
+  text-underline-offset: 0.28em;
 }
 
 /* ----- reveal ----- */

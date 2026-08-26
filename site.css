@@ -739,10 +739,6 @@ a:hover {
   padding-top: 0.45rem;
 }
 
-.case__num::after {
-  content: " —";
-}
-
 .case__title {
   display: block;
   font-family: var(--font-display);

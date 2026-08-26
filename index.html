@@ -43,7 +43,7 @@
       rel="stylesheet"
       href="https://fonts.googleapis.com/css2?family=Bricolage+Grotesque:opsz,wght@12..96,600;12..96,700&family=IBM+Plex+Mono:wght@400;500&family=Source+Serif+4:opsz,wght@8..60,400;8..60,600&display=swap"
     />
-    <link rel="stylesheet" href="site.css?v=17" />
+    <link rel="stylesheet" href="site.css?v=18" />
   </head>
   <body>
     <div class="progress-bar" data-progress-bar aria-hidden="true">
@@ -378,7 +378,10 @@
       <section class="section band-deep" id="selected" data-section="selected" aria-labelledby="selected-title">
         <div class="shell content-col">
           <p class="mono-label section-label" data-reveal>Selected work</p>
-          <h2 id="selected-title" class="section-title" data-reveal>Three engagements inside payments organizations.</h2>
+          <h2 id="selected-title" class="section-title" data-reveal>Three examples of GTM systems under strain.</h2>
+          <p class="reading selected__lede" data-reveal>
+            These are examples of the kinds of operating problems I diagnose and redesign: where ownership is unclear, decisions happen too late, or the system relies on people to compensate for what it was never designed to handle.
+          </p>
 
           <div class="cases" data-accordion>
             <article class="case is-open" data-reveal>
@@ -392,21 +395,21 @@
                 >
                   <span class="mono-label case__num">01</span>
                   <span class="case__head">
-                    <span class="case__title">Leads that never behaved like leads</span>
-                    <span class="case__summary">The highest-value pipeline in the business was the one nobody could forecast.</span>
+                    <span class="case__title">Partner leads that never behaved like leads</span>
+                    <span class="case__summary">When high-value demand is treated as an exception, the system becomes unpredictable.</span>
                   </span>
                 </button>
               </h3>
               <div class="case__panel" id="case-1-panel" role="region" aria-labelledby="case-1-trigger">
                 <div class="case__panel-inner">
                   <div class="case__block">
-                    <p class="mono-label">Visible</p>
+                    <p class="mono-label">What it looked like</p>
                     <p class="reading">
                       Partner and referral opportunities were the highest-value pipeline in the business and the least predictable. Some bypassed intake entirely, others sat untouched for weeks. Sellers put it down to lead quality and Partnerships put it down to follow-up.
                     </p>
                   </div>
                   <div class="case__block">
-                    <p class="mono-label">Underneath</p>
+                    <p class="mono-label">What was actually happening</p>
                     <p class="reading">
                       A referred customer and an inbound customer are not the same object. The referred one arrives with different eligibility, a different underwriting profile, and a relationship in which someone has already implied something about how this is going to go. None of that had ever been described to the intake system, so these leads were handled as exceptions, with ownership that shifted by source and override logic living in nobody's documentation. By the time I looked at it, the exceptions were most of the volume.
                     </p>
@@ -414,7 +417,7 @@
                   <div class="case__block">
                     <p class="mono-label">What changed</p>
                     <p class="reading">
-                      Partner and referral leads became defined intake types with named ownership, written eligibility rules, and override paths that carried accountability rather than avoiding it. The most valuable pipeline in the business became something leadership could see and forecast.
+                      Partner and referral leads became defined intake types with named ownership, written eligibility rules, and explicit override paths with accountability attached. Routing no longer depended on individual intervention. The most valuable pipeline in the business became visible, attributable, and forecastable.
                     </p>
                   </div>
                 </div>
@@ -432,21 +435,21 @@
                 >
                   <span class="mono-label case__num">02</span>
                   <span class="case__head">
-                    <span class="case__title">Escalation as the operating model</span>
-                    <span class="case__summary">Late-stage escalation had stopped being an exception and become the process.</span>
+                    <span class="case__title">When escalation becomes the operating model</span>
+                    <span class="case__summary">When critical decisions happen too late, every downstream function becomes a blocker.</span>
                   </span>
                 </button>
               </h3>
               <div class="case__panel" id="case-2-panel" role="region" aria-labelledby="case-2-trigger" hidden>
                 <div class="case__panel-inner">
                   <div class="case__block">
-                    <p class="mono-label">Visible</p>
+                    <p class="mono-label">What it looked like</p>
                     <p class="reading">
                       A deal that had been in the pipeline for two quarters went to legal review three days before quarter end and surfaced a data residency requirement nobody had raised at any earlier stage. It wasn't unusual. Late-stage escalations of that kind were the normal way large deals moved, cycles were lengthening, and sellers had started treating internal teams as obstacles rather than participants.
                     </p>
                   </div>
                   <div class="case__block">
-                    <p class="mono-label">Underneath</p>
+                    <p class="mono-label">What was actually happening</p>
                     <p class="reading">
                       The breakdowns lived between functions rather than inside them. Decisions that belonged at qualification were being made at contract, which in a regulated business is the most expensive available moment to discover a constraint. The rules governing those decisions existed as accumulated judgment rather than design, so every new deal reopened a question the last deal had already answered, and each function was confident the problem sat with a different one.
                     </p>
@@ -454,7 +457,7 @@
                   <div class="case__block">
                     <p class="mono-label">What changed</p>
                     <p class="reading">
-                      I redefined decision sequencing, ownership and handoff logic across the revenue motion, moving the constraints that genuinely gate a deal up to qualification. Exception paths shrank, and the organization moved from escalation-driven to designed execution without a reorg or added headcount.
+                      I redefined decision sequencing, ownership and handoff logic across the revenue motion, moving genuine deal constraints into qualification rather than contract stage. Risk, Legal and other downstream functions had explicit entry points and decision rights instead of relying on late escalation. The organization moved from escalation-driven to designed execution without a reorg or added headcount.
                     </p>
                   </div>
                 </div>
@@ -472,29 +475,29 @@
                 >
                   <span class="mono-label case__num">03</span>
                   <span class="case__head">
-                    <span class="case__title">Account managers drowning in noise</span>
-                    <span class="case__summary">A capacity-constrained team was being used as a distribution channel.</span>
+                    <span class="case__title">When strategic sellers become the distribution channel</span>
+                    <span class="case__summary">When information has no operating logic, high-value teams absorb the cost.</span>
                   </span>
                 </button>
               </h3>
               <div class="case__panel" id="case-3-panel" role="region" aria-labelledby="case-3-trigger" hidden>
                 <div class="case__panel-inner">
                   <div class="case__block">
-                    <p class="mono-label">Visible</p>
+                    <p class="mono-label">What it looked like</p>
                     <p class="reading">
                       The account managers supporting the highest-value customers were absorbing a continuous stream of updates from Product, Partnerships, Lifecycle, Engineering and Enablement, arriving at unpredictable times through whichever channel the sender happened to prefer. High-impact changes surfaced late, occasionally after a customer had already felt them.
                     </p>
                   </div>
                   <div class="case__block">
-                    <p class="mono-label">Underneath</p>
+                    <p class="mono-label">What was actually happening</p>
                     <p class="reading">
-                      The organization was treating a capacity-constrained team as an always-available distribution surface. A pricing change, a deprecation and a compliance-driven migration all land on the same person, through the same channel, with nothing to signal which one carries real risk. No rule existed for what qualified for AM attention or when leadership review was required, so the team was personally absorbing a triage function the system should have been performing.
+                      The organization was treating a capacity-constrained team as an always-available distribution surface. A pricing change, a deprecation and a compliance-driven migration all landed on the same person, through the same channel, with nothing to signal which one carries real risk. No rule existed for what qualified for AM attention or when leadership review was required, so the team was personally absorbing a triage function the system should have been performing.
                     </p>
                   </div>
                   <div class="case__block">
                     <p class="mono-label">What changed</p>
                     <p class="reading">
-                      A single intake for cross-functional updates, prioritization tiers tied to customer impact, leadership gating on high-impact items, and a cadence built around what the team could actually hold. Workload became predictable and the surprises largely stopped, without new tooling.
+                      A single intake for cross-functional updates, prioritization tiers tied to customer impact, leadership gating on high-impact items, and a cadence built around what the team could actually absorb. Information was no longer routed directly to AMs simply because someone wanted them to know about it. High-impact changes surfaced earlier, with context and clear ownership, without new tooling.
                     </p>
                   </div>
                 </div>

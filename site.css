@@ -698,6 +698,11 @@ a:hover {
 }
 
 /* ----- cases accordion ----- */
+.selected__lede {
+  margin: 1rem 0 0;
+  max-width: var(--measure);
+}
+
 .cases {
   margin-top: 2.5rem;
   border-top: 1px solid var(--rule);
@@ -732,6 +737,10 @@ a:hover {
 
 .case__num {
   padding-top: 0.45rem;
+}
+
+.case__num::after {
+  content: " —";
 }
 
 .case__title {

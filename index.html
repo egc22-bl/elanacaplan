@@ -43,7 +43,11 @@
       rel="stylesheet"
       href="https://fonts.googleapis.com/css2?family=Bricolage+Grotesque:opsz,wght@12..96,600;12..96,700&family=IBM+Plex+Mono:wght@400;500&family=Source+Serif+4:opsz,wght@8..60,400;8..60,600&display=swap"
     />
-    <link rel="stylesheet" href="site.css?v=19" />
+    <link rel="stylesheet" href="site.css?v=30" />
+    <script>
+      window.va = window.va || function () { (window.vaq = window.vaq || []).push(arguments); };
+    </script>
+    <script defer src="/_vercel/insights/script.js"></script>
   </head>
   <body>
     <div class="progress-bar" data-progress-bar aria-hidden="true">
@@ -88,14 +92,29 @@
           <a href="#work">The work</a>
           <a href="#engagements">Engagements</a>
           <a href="#about">About</a>
-          <a
-            href="https://www.linkedin.com/newsletters/the-issue-underneath-the-issue-7477471508492091392"
-            target="_blank"
-            rel="noopener noreferrer"
-            >Writing</a
-          >
+          <a href="/writing">Writing</a>
         </nav>
+        <button
+          class="nav-toggle"
+          type="button"
+          data-nav-toggle
+          aria-expanded="false"
+          aria-controls="mobile-nav"
+        >
+          <span class="visually-hidden">Menu</span>
+          <span class="nav-toggle__icon" aria-hidden="true">
+            <span></span>
+            <span></span>
+          </span>
+        </button>
       </div>
+      <nav class="mobile-nav" id="mobile-nav" data-mobile-nav hidden aria-label="Mobile">
+        <a href="#pattern">The pattern</a>
+        <a href="#work">The work</a>
+        <a href="#engagements">Engagements</a>
+        <a href="#about">About</a>
+        <a href="/writing">Writing</a>
+      </nav>
     </header>
 
     <main id="top">
@@ -569,13 +588,7 @@
               <p>That's the pattern I go after now.</p>
               <p>
                 I write about it monthly in
-                <a
-                  class="text-link"
-                  href="https://www.linkedin.com/newsletters/the-issue-underneath-the-issue-7477471508492091392"
-                  target="_blank"
-                  rel="noopener noreferrer"
-                  >The Issue Underneath the Issue</a
-                >.
+                <a class="text-link" href="/writing"><em>The Issue Underneath the Issue</em></a>.
               </p>
             </div>
           </div>
@@ -588,7 +601,7 @@
           <p class="mono-label section-label" data-reveal>Contact</p>
           <h2 id="contact-title" class="section-title" data-reveal>Start with the real issue.</h2>
           <p class="reading contact__lede" data-reveal>
-            Tell me what's going on. I read every message myself.
+            Tell me what's going on.
           </p>
 
           <form class="contact-form" data-contact-form novalidate data-reveal>
@@ -623,12 +636,7 @@
         <a class="site-brand" href="#top">Elana Caplan</a>
         <p class="site-footer__tag">Operational diagnostics for fintech and payments.</p>
         <nav class="site-footer__links" aria-label="Footer">
-          <a
-            href="https://www.linkedin.com/newsletters/the-issue-underneath-the-issue-7477471508492091392"
-            target="_blank"
-            rel="noopener noreferrer"
-            >The Issue Underneath the Issue</a
-          >
+          <a href="/writing">Writing</a>
           <a href="https://www.linkedin.com/in/elanacaplan/" target="_blank" rel="noopener noreferrer">LinkedIn</a>
           <a href="mailto:elana@elanacaplan.com">elana@elanacaplan.com</a>
           <a href="/privacy">Privacy Policy</a>
@@ -639,6 +647,6 @@
     </footer>
     </div>
 
-    <script src="script.js?v=10"></script>
+    <script src="script.js?v=11"></script>
   </body>
 </html>

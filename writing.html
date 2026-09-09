@@ -38,7 +38,7 @@
       href="https://fonts.googleapis.com/css2?family=Bricolage+Grotesque:opsz,wght@12..96,600;12..96,700&family=IBM+Plex+Mono:wght@400;500&family=Source+Serif+4:opsz,wght@8..60,400;8..60,600&display=swap"
       rel="stylesheet"
     />
-    <link rel="stylesheet" href="site.css?v=27" />
+    <link rel="stylesheet" href="site.css?v=35" />
     <script>
       window.va = window.va || function () { (window.vaq = window.vaq || []).push(arguments); };
     </script>
@@ -56,152 +56,387 @@
       <main class="writing-main">
         <div class="shell writing-column">
           <header class="writing-intro">
-            <h1 class="legal-page__title">The Issue Underneath the Issue</h1>
+            <h1 class="legal-page__title">Writing</h1>
+            <nav class="writing-toc" aria-label="On this page">
+              <a href="#ownership">Ownership that was never assigned</a>
+              <a href="#authority">Authority whose edges were never set</a>
+              <a href="#structure">Structure that accumulated instead of being designed</a>
+              <a href="#reasoning">Reasoning that didn't survive</a>
+              <a href="#newsletter">The Issue Underneath the Issue</a>
+            </nav>
           </header>
 
           <div class="writing-stream">
-          <article class="writing-article" aria-labelledby="piece-rule">
-            <h2 id="piece-rule" class="writing-article__title">
-              Nobody Remembers Why That Rule Exists
-            </h2>
-            <div class="legal-page__prose">
-              <p>
-                A finance lead once walked me through an approval chain that required two signatures on any contract above $50,000. I asked where the threshold came from. She said she'd inherited it. The person before her had inherited it too.
-              </p>
-              <p>
-                We eventually traced it to a deal that went badly four years earlier. Someone signed something that turned out to be expensive, and the response was a second signature above a dollar figure that felt roughly right at the time. Since then the company had built out a robust legal function, added contract review before signature, and moved average deal size well past $50,000. The condition that produced the rule was gone. The rule was still running on about 40% of their deals, adding nine days to each one.
-              </p>
-              <p>Nobody in that chain was being careless. Everyone was doing exactly their job.</p>
-              <p>
-                Companies preserve decisions and lose the reasoning behind them. The rule is easy to encode. It goes in a policy doc, a workflow, a required field in the CRM. The reasoning lives somewhere much less durable. In the head of whoever made the call. In a Slack thread from 2022. In a hallway conversation that never got written down anywhere.
-              </p>
-              <p>
-                So the rule travels forward and the reasoning doesn't. A few years later you have a company full of controls nobody can explain.
-              </p>
-              <p>That gap shows up in two ways, and they look like opposites.</p>
-              <p>
-                The first is accretion. Nothing gets removed, because nobody can prove it's safe to remove. Any given rule might be holding weight. So it all stays, the operating model gets heavier every year, and people quietly route around the parts that stopped fitting.
-              </p>
-              <p>
-                The second is the correction. A new leader arrives, sees obvious bloat, and clears it out. Some of what they remove is residue. Some of it was load-bearing. They find out which was which about six months later, usually during an incident.
-              </p>
-              <p>
-                Both come from the same missing information. If you don't know why something exists, you can't tell whether it still should.
-              </p>
-              <p>
-                The fix isn't more documentation. Most companies already have more documentation than anyone reads. It's a change in what gets written down.
-              </p>
-              <p>
-                "Two approvals required above $50,000" is a rule. No expiry, no conditions.
-              </p>
-              <p>
-                "Two approvals required above $50,000 because we have no legal review before signature, and the last unreviewed deal cost us $400,000" is the same rule carrying its own audit. The day legal review exists, the sentence stops holding together. Someone reading it will notice.
-              </p>
-              <p>
-                Write down the condition, not just the conclusion. Then the rule can tell you when it's finished.
-              </p>
-              <p>
-                Most of this gets lost in transitions. Someone leaves, someone new takes over the function, and the handover covers what to do without ever covering why any of it was decided. The rules survive the turnover fine. The reasoning walks out with the person who had it, and nobody thinks to ask them for it on the way out.
-              </p>
-            </div>
-          </article>
+            <section class="writing-section" aria-labelledby="ownership">
+              <h2 id="ownership" class="writing-section__title">
+                Ownership that was never assigned
+              </h2>
 
-          <article class="writing-article" aria-labelledby="piece-bandaid">
-            <h2 id="piece-bandaid" class="writing-article__title">
-              When Adding Another Process Is Just a Bandaid
-            </h2>
-            <div class="legal-page__prose">
-              <p>
-                When execution starts breaking down, the instinct is almost always the same: Add a step. Add an approval. Add a checkpoint. Document it. Train people on it. Call it a new process.
-              </p>
-              <p>
-                Sometimes that's exactly right. If no process exists, building one is the obvious answer.
-              </p>
-              <p>
-                But in many companies I've worked with, the problem isn't that process doesn't exist. It's something else entirely. And adding more process on top of it doesn't fix anything. It just gives the original problem somewhere new to hide.
-              </p>
-              <p>The three situations I see most often:</p>
+              <article class="writing-post">
+                <div class="legal-page__prose">
+                  <p>The most accurate org chart your company produces is the out of office auto-reply.</p>
+                  <p>
+                    For anything on X, contact Y. For anything urgent, Z. Everything else will be handled when I'm back on the 8th.
+                  </p>
+                  <p>
+                    That last category is the interesting one. Somewhere in the last few weeks, a set of decisions got quietly reclassified as things that can wait. Some of them genuinely can. The rest were never anyone's to begin with, and the out of office is just where that becomes visible.
+                  </p>
+                  <p>Nobody covers what nobody owns.</p>
+                </div>
+              </article>
 
-              <h3>The Gap</h3>
-              <p>
-                The process actually doesn't exist. Someone needs to design it. This is the one case where adding process is the right call. But it's less common than people think. What looks like a missing process is often actually a process that exists informally in someone's head, in how a particular team does things, in the way work has always moved between two people who figured it out years ago. Before building something new, it's worth asking whether the process already exists somewhere and just hasn't been encoded. Because if it does, the work isn't design. It's documentation. And those are very different engagements.
-              </p>
+              <hr class="writing-rule writing-rule--post" aria-hidden="true" />
 
-              <h3>The Workaround</h3>
-              <p>
-                The process exists but isn't being followed. This is where most companies stop asking the right question. The instinct is to reinforce the process: remind people, retrain, add oversight, add another approval. But people don't avoid process randomly. They avoid it when it doesn't match how work actually moves. Sometimes the process was designed by people who weren't close enough to the work to understand how it actually ran. Sometimes it made sense once and quietly stopped making sense as the business changed around it. The process didn't fail. It just stopped fitting. And when process stops fitting, people route around it. They find the path that actually works: the Slack message, the favour, the workaround that gets things done. The workaround becomes the real process. And the documented one becomes a compliance exercise that everyone performs and nobody believes in. Adding more process in this situation doesn't fix anything. It adds another layer on top of something that was already being avoided.
-              </p>
+              <article class="writing-post">
+                <div class="legal-page__prose">
+                  <p>
+                    A RevOps lead told me he counted seven meetings on his calendar in one week, all about AI adoption. Different teams, all with the same words in the invite title.
+                  </p>
+                  <p>None of the seven knew the other six existed.</p>
+                  <p>
+                    They weren't duplicating on purpose. Nobody owned AI adoption, so seven teams each had a reason to start and no one had the standing to say which one was the effort.
+                  </p>
+                  <p>
+                    You find out when two of them ship something that doesn't line up. It gets called a coordination failure. But none of the seven could have coordinated anything, because none of them had the authority to tell the other six to stop.
+                  </p>
+                </div>
+              </article>
 
-              <h3>The Trap</h3>
-              <p>
-                The process exists, is being followed, and is still the problem. This is the hardest one to diagnose because nothing looks broken from the outside. Compliance is high. People are doing exactly what they're supposed to do. And yet deals are still stalling. Handoffs are still breaking. The same friction keeps showing up in the same places. Sometimes the process was designed for a version of the business that no longer exists and never got updated. Sometimes it was built to protect one function without anyone asking what it cost the rest of the system. Sometimes it just never worked as well as everyone assumed it did. Whatever the reason, the answer isn't more enforcement. The process itself is what needs to change. And that's a much harder conversation to have than telling people to follow the rules.
-              </p>
+              <hr class="writing-rule writing-rule--post" aria-hidden="true" />
 
-              <p>
-                The mistake isn't caring about process. The mistake is treating all three situations the same way.
-              </p>
-              <p>
-                Before adding anything, the more useful questions are: does a process exist, is it being followed, and is it actually working?
-              </p>
-              <p>
-                If the answer to any of those is no, that's where the real work starts.
-              </p>
-            </div>
-          </article>
+              <article class="writing-post">
+                <div class="legal-page__prose">
+                  <p>
+                    Two teams split one customer journey. One owns the front half, one owns the back, and both run well by their own numbers, because the numbers were built to describe the halves.
+                  </p>
+                  <p>
+                    I've been on the receiving end of that. You know the seam is there. You learn what to chase and when, and after a while you stop calling it chasing because it's just how the handoff goes.
+                  </p>
+                  <p>
+                    The customer doesn't experience it that way. They don't belong to part A at the beginning and part B at the end. What they experience is one relationship with an unexplained pause in the middle, and nobody owns the space where that pause lives.
+                  </p>
+                  <p>Customers never complain about org design. They describe the seam and call it service.</p>
+                </div>
+              </article>
+            </section>
 
-          <article class="writing-article" aria-labelledby="piece-space">
-            <h2 id="piece-space" class="writing-article__title">
-              Nobody Owns the Space Between Your Teams
-            </h2>
-            <div class="legal-page__prose">
-              <p>
-                I've sat in enough leadership meetings to recognize a pattern: Three functions. One broken process. Three completely different explanations for why it's broken.
-              </p>
-              <p>
-                One team thinks the other is too slow. Another thinks nobody follows the process. A third thinks they're always the last to know. Each team is describing something real. Each team is also only describing what they can see from inside their own lane.
-              </p>
-              <p>Nobody is looking at the space between them.</p>
-              <p>
-                It's not lack of effort. It's not incompetence. It's not politics. It's the natural result of how organizations are built. Each function is trained to see the world through its own lens. Sales sees the deal. Risk sees the exposure. Finance sees the margin. Product sees the delivery. Everyone is paying attention. Just not to the same thing.
-              </p>
-              <p>
-                At scale, things rarely fall apart inside a function. They fall apart in the gap between them. The handoff that worked at fifty people doesn't hold at two hundred. The approval that used to be a quick conversation becomes a weeks-long bottleneck. The decision that's supposed to happen at one level quietly moves two levels up because nobody ever designed a process for when two functions disagree.
-              </p>
-              <p>
-                Ownership is only part of it. Sometimes the right people are involved but in the wrong order. A function that needs to weigh in early gets pulled in late, after decisions have already been made around them. Another gets engaged before the work is ready for them, creating rework instead of progress. The sequence was never designed. It just happened.
-              </p>
-              <p>
-                So what happens? Each team escalates. Leadership gets pulled in. Someone proposes a new process, a new tool, more headcount. The symptoms get treated. The gap stays open. A few months later, the same problem surfaces with a different name.
-              </p>
-              <p>
-                The most useful question I've learned to ask isn't who's right. It's: what is each team seeing that the others aren't?
-              </p>
-              <p>
-                That question changes where you look. Not inside the functions, but between them. The decision nobody has actually made yet, because everyone assumed someone else would. The moment where one team's responsibility ends and another's hasn't clearly begun. The decision everyone thought was settled. Nobody documented it.
-              </p>
-              <p>
-                When you start looking there, the real problem usually becomes visible. And it's almost never a reorg, more headcount, or a new tool.
-              </p>
-              <p>
-                None of this is a character flaw. It's structural. Every team is doing exactly what they were built to do. The problem is that nobody was ever asked to own the space between them.
-              </p>
-              <p>
-                That space is where execution goes to slow down. And in most organizations I've worked with, nobody owns it. Not because people don't care. Because nobody ever asked them to.
-              </p>
-            </div>
-          </article>
+            <hr class="writing-rule writing-rule--section" aria-hidden="true" />
 
-          <p class="writing-newsletter-note">
-            Published monthly on
-            <a
-              class="text-link"
-              href="https://www.linkedin.com/newsletters/the-issue-underneath-the-issue-7477471508492091392/"
-              target="_blank"
-              rel="noopener noreferrer"
-              >LinkedIn</a
-            >.
-          </p>
-        </div>
+            <section class="writing-section" aria-labelledby="authority">
+              <h2 id="authority" class="writing-section__title">
+                Authority whose edges were never set
+              </h2>
+
+              <article class="writing-post">
+                <div class="legal-page__prose">
+                  <p>
+                    An exec told me his company's cross-functional work runs well. His reason: everyone's aligned on the same outcome. I believed him. That part is usually true, and it's the part most companies get right.
+                  </p>
+                  <p>
+                    Then two teams who both want that outcome disagree about how to get there. Alignment doesn't settle that. Both paths serve the goal, both teams can make an honest case, neither one is wrong.
+                  </p>
+                  <p>
+                    What settles it is who decides. That never came up, because as long as everyone agreed, it didn't have to.
+                  </p>
+                </div>
+              </article>
+
+              <hr class="writing-rule writing-rule--post" aria-hidden="true" />
+
+              <article class="writing-post">
+                <div class="legal-page__prose">
+                  <p>
+                    The new org chart came around on a Tuesday. Third version in about two years. Each one had been announced as clarity. Split the function, then recombine it, then rename it and move it under someone else. Every version solved the complaint about the version before it.
+                  </p>
+                  <p>
+                    Nobody was actually arguing about reporting lines. They were arguing about who decides when a customer request becomes a product commitment. That question had never been answered, and it came up about twice a month.
+                  </p>
+                  <p>
+                    A reorg moves people. It doesn't assign a decision. So the same fight showed up in the new structure within a quarter, and it looked like a personality problem again, because now it was between two different people.
+                  </p>
+                  <p>If a seam needs redrawing every eight months, the chart isn't what's broken.</p>
+                </div>
+              </article>
+            </section>
+
+            <hr class="writing-rule writing-rule--section" aria-hidden="true" />
+
+            <section class="writing-section" aria-labelledby="structure">
+              <h2 id="structure" class="writing-section__title">
+                Structure that accumulated instead of being designed
+              </h2>
+
+              <article class="writing-post">
+                <div class="legal-page__prose">
+                  <p>I used to think extra approvals meant a company was becoming more disciplined.</p>
+                  <p>Sometimes they do.</p>
+                  <p>But a lot of the time, approvals are what companies add when trust starts breaking down.</p>
+                  <p>
+                    Leadership doesn't trust the forecast. Legal doesn't trust the handoff. Sales doesn't trust the process. Product doesn't trust what was promised. Nobody fully trusts the data.
+                  </p>
+                  <p>So another checkpoint gets added. Then another.</p>
+                  <p>And eventually the company starts calling it governance.</p>
+                  <p>Sometimes it is.</p>
+                  <p>Sometimes it's a trust problem with a workflow around it.</p>
+                </div>
+              </article>
+
+              <hr class="writing-rule writing-rule--post" aria-hidden="true" />
+
+              <article class="writing-post">
+                <div class="legal-page__prose">
+                  <p>
+                    Pricing was waiting on the security review to come back. Security was waiting on Finance to confirm contract value, because value determines the review tier. Finance was waiting on Pricing to finalize payment terms before it would put a number on anything.
+                  </p>
+                  <p>Six weeks.</p>
+                  <p>
+                    Every one of those is a reasonable dependency. Ask any of the three what's holding them up and you'll get a clear, correct answer, and the person they name really is upstream of them. Nobody is wrong. Nobody is even slow.
+                  </p>
+                  <p>
+                    What none of them can see is that the chain closes on itself. There's no first step. The only way in is for someone to commit to a partial answer before they're comfortable giving one, and nothing in the process asks anyone to do that. You find it by mapping the order, not the owners.
+                  </p>
+                </div>
+              </article>
+
+              <hr class="writing-rule writing-rule--post" aria-hidden="true" />
+
+              <article class="writing-post">
+                <div class="legal-page__prose">
+                  <p>There's a version of the operating model that lives in the deck.</p>
+                  <p>Clear owners. Logical handoffs. Decisions made at the right level by the right people.</p>
+                  <p>And then there's the version people actually work in.</p>
+                  <p>
+                    The owner who technically owns it but hasn't been consulted in months. The handoff that works on paper but requires three Slack messages and a favour to actually execute. The decision that's supposed to happen at one level but quietly gets made two levels up because nobody wants to be wrong.
+                  </p>
+                  <p>
+                    The deck version is usually sincere. Leaders aren't describing a fantasy. They're describing what they believe is true.
+                  </p>
+                  <p>The gap isn't dishonesty. It's distance.</p>
+                  <p>
+                    The further you get from where work actually happens, the more the documented model and the lived model start to drift. And the drift is almost never dramatic. It's gradual. One workaround at a time.
+                  </p>
+                  <p>
+                    By the time it shows up as a real problem, missed handoffs, duplicated work, decisions that stall for no obvious reason, the gap has usually been there for a while.
+                  </p>
+                  <p>The most useful diagnostic question I know isn't "how does this work?"</p>
+                  <p>
+                    It's "walk me through the last time this actually happened. Not what's supposed to happen. What exactly happened. The good, the bad, and the ugly."
+                  </p>
+                  <p>That's usually where the real operating model shows up.</p>
+                </div>
+              </article>
+            </section>
+
+            <hr class="writing-rule writing-rule--section" aria-hidden="true" />
+
+            <section class="writing-section" aria-labelledby="reasoning">
+              <h2 id="reasoning" class="writing-section__title">
+                Reasoning that didn't survive
+              </h2>
+
+              <article class="writing-post">
+                <div class="legal-page__prose">
+                  <p>
+                    A senior leader told me she wasn't worried about losing what she knows. She was worried she'd never find time to hand it over.
+                  </p>
+                  <p>
+                    Her function has a concentrated peak. Four months where the volume and the escalations and every decision that actually matters land at once. She hires and onboards outside that window on purpose, so new people ramp in the quiet stretch and aren't thrown into the deep end. Sensible. Every leader I know would do the same.
+                  </p>
+                  <p>
+                    But the judgment she's most worried about losing only exists during those four months. It's what she does when the plan stops holding, when two things break at once and the sequence she chooses is the whole difference. That doesn't happen in the quiet months.
+                  </p>
+                  <p>
+                    So she develops her successors in the only window where the thing she needs to teach isn't available to learn.
+                  </p>
+                  <p>
+                    No amount of documentation fixes this. She could write it all down and the process docs would be accurate and they would not transfer the judgment, because the judgment isn't a procedure. It's what she does when the procedure runs out.
+                  </p>
+                  <p>
+                    The constraint isn't whether it's written down. It's when the transfer can happen at all.
+                  </p>
+                </div>
+              </article>
+
+              <hr class="writing-rule writing-rule--post" aria-hidden="true" />
+
+              <article class="writing-post">
+                <div class="legal-page__prose">
+                  <p>
+                    "Should be quick, it's mostly standard." The deal had been running since March. It was August.
+                  </p>
+                  <p>
+                    For 25 years as a lawyer I told people the same thing. Don't send me a draft before you have terms. But the minute something is contested, put me in the conversation. That's the ten-minute version. Waiting turns it into the three-week one.
+                  </p>
+                  <p>People waited anyway.</p>
+                  <p>
+                    Not because they'd tried it my way and found it slow. Because they'd inherited a belief about Legal from a bad experience someone else had, with a different lawyer, at a different company, and nobody ever went back and checked whether it still applied.
+                  </p>
+                  <p>
+                    That's what most workarounds are. Not a response to how something works. A response to how someone was once told it worked.
+                  </p>
+                  <p>
+                    Which is why fixing the function usually isn't enough. The team is routing around a version of you that stopped existing years ago, and nothing in the process ever tells them to look again.
+                  </p>
+                </div>
+              </article>
+            </section>
+
+            <hr class="writing-rule writing-rule--section" aria-hidden="true" />
+
+            <section class="writing-section writing-section--newsletter" aria-labelledby="newsletter">
+              <h2 id="newsletter" class="writing-section__title">
+                The Issue Underneath the Issue
+              </h2>
+
+              <article class="writing-article" aria-labelledby="piece-rule">
+                <h3 id="piece-rule" class="writing-article__title">
+                  Nobody Remembers Why That Rule Exists
+                </h3>
+                <div class="legal-page__prose">
+                  <p>
+                    A finance lead once walked me through an approval chain that required two signatures on any contract above $50,000. I asked where the threshold came from. She said she'd inherited it. The person before her had inherited it too.
+                  </p>
+                  <p>
+                    We eventually traced it to a deal that went badly four years earlier. Someone signed something that turned out to be expensive, and the response was a second signature above a dollar figure that felt roughly right at the time. Since then the company had built out a robust legal function, added contract review before signature, and moved average deal size well past $50,000. The condition that produced the rule was gone. The rule was still running on about 40% of their deals, adding nine days to each one.
+                  </p>
+                  <p>Nobody in that chain was being careless. Everyone was doing exactly their job.</p>
+                  <p>
+                    Companies preserve decisions and lose the reasoning behind them. The rule is easy to encode. It goes in a policy doc, a workflow, a required field in the CRM. The reasoning lives somewhere much less durable. In the head of whoever made the call. In a Slack thread from 2022. In a hallway conversation that never got written down anywhere.
+                  </p>
+                  <p>
+                    So the rule travels forward and the reasoning doesn't. A few years later you have a company full of controls nobody can explain.
+                  </p>
+                  <p>That gap shows up in two ways, and they look like opposites.</p>
+                  <p>
+                    The first is accretion. Nothing gets removed, because nobody can prove it's safe to remove. Any given rule might be holding weight. So it all stays, the operating model gets heavier every year, and people quietly route around the parts that stopped fitting.
+                  </p>
+                  <p>
+                    The second is the correction. A new leader arrives, sees obvious bloat, and clears it out. Some of what they remove is residue. Some of it was load-bearing. They find out which was which about six months later, usually during an incident.
+                  </p>
+                  <p>
+                    Both come from the same missing information. If you don't know why something exists, you can't tell whether it still should.
+                  </p>
+                  <p>
+                    The fix isn't more documentation. Most companies already have more documentation than anyone reads. It's a change in what gets written down.
+                  </p>
+                  <p>
+                    "Two approvals required above $50,000" is a rule. No expiry, no conditions.
+                  </p>
+                  <p>
+                    "Two approvals required above $50,000 because we have no legal review before signature, and the last unreviewed deal cost us $400,000" is the same rule carrying its own audit. The day legal review exists, the sentence stops holding together. Someone reading it will notice.
+                  </p>
+                  <p>
+                    Write down the condition, not just the conclusion. Then the rule can tell you when it's finished.
+                  </p>
+                  <p>
+                    Most of this gets lost in transitions. Someone leaves, someone new takes over the function, and the handover covers what to do without ever covering why any of it was decided. The rules survive the turnover fine. The reasoning walks out with the person who had it, and nobody thinks to ask them for it on the way out.
+                  </p>
+                </div>
+              </article>
+
+              <hr class="writing-rule writing-rule--post" aria-hidden="true" />
+
+              <article class="writing-article" aria-labelledby="piece-bandaid">
+                <h3 id="piece-bandaid" class="writing-article__title">
+                  When Adding Another Process Is Just a Bandaid
+                </h3>
+                <div class="legal-page__prose">
+                  <p>
+                    When execution starts breaking down, the instinct is almost always the same: Add a step. Add an approval. Add a checkpoint. Document it. Train people on it. Call it a new process.
+                  </p>
+                  <p>
+                    Sometimes that's exactly right. If no process exists, building one is the obvious answer.
+                  </p>
+                  <p>
+                    But in many companies I've worked with, the problem isn't that process doesn't exist. It's something else entirely. And adding more process on top of it doesn't fix anything. It just gives the original problem somewhere new to hide.
+                  </p>
+                  <p>The three situations I see most often:</p>
+
+                  <h4>The Gap</h4>
+                  <p>
+                    The process actually doesn't exist. Someone needs to design it. This is the one case where adding process is the right call. But it's less common than people think. What looks like a missing process is often actually a process that exists informally in someone's head, in how a particular team does things, in the way work has always moved between two people who figured it out years ago. Before building something new, it's worth asking whether the process already exists somewhere and just hasn't been encoded. Because if it does, the work isn't design. It's documentation. And those are very different engagements.
+                  </p>
+
+                  <h4>The Workaround</h4>
+                  <p>
+                    The process exists but isn't being followed. This is where most companies stop asking the right question. The instinct is to reinforce the process: remind people, retrain, add oversight, add another approval. But people don't avoid process randomly. They avoid it when it doesn't match how work actually moves. Sometimes the process was designed by people who weren't close enough to the work to understand how it actually ran. Sometimes it made sense once and quietly stopped making sense as the business changed around it. The process didn't fail. It just stopped fitting. And when process stops fitting, people route around it. They find the path that actually works: the Slack message, the favour, the workaround that gets things done. The workaround becomes the real process. And the documented one becomes a compliance exercise that everyone performs and nobody believes in. Adding more process in this situation doesn't fix anything. It adds another layer on top of something that was already being avoided.
+                  </p>
+
+                  <h4>The Trap</h4>
+                  <p>
+                    The process exists, is being followed, and is still the problem. This is the hardest one to diagnose because nothing looks broken from the outside. Compliance is high. People are doing exactly what they're supposed to do. And yet deals are still stalling. Handoffs are still breaking. The same friction keeps showing up in the same places. Sometimes the process was designed for a version of the business that no longer exists and never got updated. Sometimes it was built to protect one function without anyone asking what it cost the rest of the system. Sometimes it just never worked as well as everyone assumed it did. Whatever the reason, the answer isn't more enforcement. The process itself is what needs to change. And that's a much harder conversation to have than telling people to follow the rules.
+                  </p>
+
+                  <p>
+                    The mistake isn't caring about process. The mistake is treating all three situations the same way.
+                  </p>
+                  <p>
+                    Before adding anything, the more useful questions are: does a process exist, is it being followed, and is it actually working?
+                  </p>
+                  <p>
+                    If the answer to any of those is no, that's where the real work starts.
+                  </p>
+                </div>
+              </article>
+
+              <hr class="writing-rule writing-rule--post" aria-hidden="true" />
+
+              <article class="writing-article" aria-labelledby="piece-space">
+                <h3 id="piece-space" class="writing-article__title">
+                  Nobody Owns the Space Between Your Teams
+                </h3>
+                <div class="legal-page__prose">
+                  <p>
+                    I've sat in enough leadership meetings to recognize a pattern: Three functions. One broken process. Three completely different explanations for why it's broken.
+                  </p>
+                  <p>
+                    One team thinks the other is too slow. Another thinks nobody follows the process. A third thinks they're always the last to know. Each team is describing something real. Each team is also only describing what they can see from inside their own lane.
+                  </p>
+                  <p>Nobody is looking at the space between them.</p>
+                  <p>
+                    It's not lack of effort. It's not incompetence. It's not politics. It's the natural result of how organizations are built. Each function is trained to see the world through its own lens. Sales sees the deal. Risk sees the exposure. Finance sees the margin. Product sees the delivery. Everyone is paying attention. Just not to the same thing.
+                  </p>
+                  <p>
+                    At scale, things rarely fall apart inside a function. They fall apart in the gap between them. The handoff that worked at fifty people doesn't hold at two hundred. The approval that used to be a quick conversation becomes a weeks-long bottleneck. The decision that's supposed to happen at one level quietly moves two levels up because nobody ever designed a process for when two functions disagree.
+                  </p>
+                  <p>
+                    Ownership is only part of it. Sometimes the right people are involved but in the wrong order. A function that needs to weigh in early gets pulled in late, after decisions have already been made around them. Another gets engaged before the work is ready for them, creating rework instead of progress. The sequence was never designed. It just happened.
+                  </p>
+                  <p>
+                    So what happens? Each team escalates. Leadership gets pulled in. Someone proposes a new process, a new tool, more headcount. The symptoms get treated. The gap stays open. A few months later, the same problem surfaces with a different name.
+                  </p>
+                  <p>
+                    The most useful question I've learned to ask isn't who's right. It's: what is each team seeing that the others aren't?
+                  </p>
+                  <p>
+                    That question changes where you look. Not inside the functions, but between them. The decision nobody has actually made yet, because everyone assumed someone else would. The moment where one team's responsibility ends and another's hasn't clearly begun. The decision everyone thought was settled. Nobody documented it.
+                  </p>
+                  <p>
+                    When you start looking there, the real problem usually becomes visible. And it's almost never a reorg, more headcount, or a new tool.
+                  </p>
+                  <p>
+                    None of this is a character flaw. It's structural. Every team is doing exactly what they were built to do. The problem is that nobody was ever asked to own the space between them.
+                  </p>
+                  <p>
+                    That space is where execution goes to slow down. And in most organizations I've worked with, nobody owns it. Not because people don't care. Because nobody ever asked them to.
+                  </p>
+                </div>
+              </article>
+
+              <hr class="writing-rule writing-rule--post" aria-hidden="true" />
+
+              <p class="writing-newsletter-note">
+                Published monthly on
+                <a
+                  class="text-link"
+                  href="https://www.linkedin.com/newsletters/the-issue-underneath-the-issue-7477471508492091392/"
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  >LinkedIn</a
+                >.
+              </p>
+            </section>
+          </div>
         </div>
       </main>
 

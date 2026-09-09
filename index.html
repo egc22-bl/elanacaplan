@@ -43,7 +43,7 @@
       rel="stylesheet"
       href="https://fonts.googleapis.com/css2?family=Bricolage+Grotesque:opsz,wght@12..96,600;12..96,700&family=IBM+Plex+Mono:wght@400;500&family=Source+Serif+4:opsz,wght@8..60,400;8..60,600&display=swap"
     />
-    <link rel="stylesheet" href="site.css?v=30" />
+    <link rel="stylesheet" href="site.css?v=31" />
     <script>
       window.va = window.va || function () { (window.vaq = window.vaq || []).push(arguments); };
     </script>
@@ -403,12 +403,12 @@
           </p>
 
           <div class="cases" data-accordion>
-            <article class="case is-open" data-reveal>
+            <article class="case" data-reveal>
               <h3>
                 <button
                   class="case__trigger"
                   type="button"
-                  aria-expanded="true"
+                  aria-expanded="false"
                   aria-controls="case-1-panel"
                   id="case-1-trigger"
                 >
@@ -417,9 +417,10 @@
                     <span class="case__title">When moving upmarket breaks the process underneath</span>
                     <span class="case__summary">A process that is correct for one motion will not hold two.</span>
                   </span>
+                  <span class="case__toggle" aria-hidden="true"></span>
                 </button>
               </h3>
-              <div class="case__panel" id="case-1-panel" role="region" aria-labelledby="case-1-trigger">
+              <div class="case__panel" id="case-1-panel" role="region" aria-labelledby="case-1-trigger" hidden>
                 <div class="case__panel-inner">
                   <div class="case__block">
                     <p class="mono-label">What it looked like</p>
@@ -457,6 +458,7 @@
                     <span class="case__title">When escalation becomes the operating model</span>
                     <span class="case__summary">When critical decisions happen too late, every downstream function becomes a blocker.</span>
                   </span>
+                  <span class="case__toggle" aria-hidden="true"></span>
                 </button>
               </h3>
               <div class="case__panel" id="case-2-panel" role="region" aria-labelledby="case-2-trigger" hidden>
@@ -497,6 +499,7 @@
                     <span class="case__title">When strategic sellers become the distribution channel</span>
                     <span class="case__summary">When information has no operating logic, high-value teams absorb the cost.</span>
                   </span>
+                  <span class="case__toggle" aria-hidden="true"></span>
                 </button>
               </h3>
               <div class="case__panel" id="case-3-panel" role="region" aria-labelledby="case-3-trigger" hidden>
@@ -638,7 +641,6 @@
         <nav class="site-footer__links" aria-label="Footer">
           <a href="/writing">Writing</a>
           <a href="https://www.linkedin.com/in/elanacaplan/" target="_blank" rel="noopener noreferrer">LinkedIn</a>
-          <a href="mailto:elana@elanacaplan.com">elana@elanacaplan.com</a>
           <a href="/privacy">Privacy Policy</a>
           <a href="/terms">Terms of Use</a>
           <span class="mono-label site-footer__meta">© 2026</span>
@@ -647,6 +649,6 @@
     </footer>
     </div>
 
-    <script src="script.js?v=11"></script>
+    <script src="script.js?v=12"></script>
   </body>
 </html>

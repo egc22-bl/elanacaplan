@@ -162,7 +162,9 @@ function initAccordion() {
   const root = document.querySelector("[data-accordion]");
   if (!root) return;
 
-  root.querySelectorAll(".case").forEach((item) => {
+  const items = Array.from(root.querySelectorAll(".case"));
+
+  items.forEach((item) => {
     const trigger = item.querySelector(".case__trigger");
     if (!trigger) return;
 
@@ -170,6 +172,9 @@ function initAccordion() {
 
     trigger.addEventListener("click", () => {
       const willOpen = !item.classList.contains("is-open");
+      items.forEach((other) => {
+        if (other !== item) setCaseOpen(other, false);
+      });
       setCaseOpen(item, willOpen);
     });
   });

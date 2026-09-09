@@ -43,7 +43,7 @@
       rel="stylesheet"
       href="https://fonts.googleapis.com/css2?family=Bricolage+Grotesque:opsz,wght@12..96,600;12..96,700&family=IBM+Plex+Mono:wght@400;500&family=Source+Serif+4:opsz,wght@8..60,400;8..60,600&display=swap"
     />
-    <link rel="stylesheet" href="site.css?v=32" />
+    <link rel="stylesheet" href="site.css?v=35" />
     <script>
       window.va = window.va || function () { (window.vaq = window.vaq || []).push(arguments); };
     </script>
@@ -403,12 +403,12 @@
           </p>
 
           <div class="cases" data-accordion>
-            <article class="case" data-reveal>
+            <article class="case is-open" data-reveal>
               <h3>
                 <button
                   class="case__trigger"
                   type="button"
-                  aria-expanded="false"
+                  aria-expanded="true"
                   aria-controls="case-1-panel"
                   id="case-1-trigger"
                 >
@@ -420,7 +420,7 @@
                   <span class="case__toggle" aria-hidden="true"></span>
                 </button>
               </h3>
-              <div class="case__panel" id="case-1-panel" role="region" aria-labelledby="case-1-trigger" hidden>
+              <div class="case__panel" id="case-1-panel" role="region" aria-labelledby="case-1-trigger">
                 <div class="case__panel-inner">
                   <div class="case__block">
                     <p class="mono-label">What it looked like</p>

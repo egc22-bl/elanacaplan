@@ -798,16 +798,21 @@ body.nav-open .nav-toggle__icon span:last-child {
 
 .case {
   border-bottom: 1px solid var(--rule);
+  transition: border-bottom-color 160ms ease;
 }
 
 .case.is-open {
   border-bottom-color: var(--accent);
 }
 
+.case:hover:not(.is-open) {
+  border-bottom-color: color-mix(in srgb, var(--ink) 45%, var(--rule));
+}
+
 .case__trigger {
   width: 100%;
   display: grid;
-  grid-template-columns: 3rem minmax(0, 40rem) 1.75rem;
+  grid-template-columns: 3rem minmax(0, 40rem) 1.5rem;
   gap: 1rem 1rem;
   align-items: start;
   justify-content: start;
@@ -829,11 +834,6 @@ body.nav-open .nav-toggle__icon span:last-child {
   text-decoration-color: var(--accent);
   text-decoration-thickness: 1px;
   text-underline-offset: 0.22em;
-}
-
-.case__trigger:hover .case__toggle {
-  color: var(--accent);
-  border-color: var(--accent);
 }
 
 .case__trigger:focus-visible {
@@ -868,17 +868,17 @@ body.nav-open .nav-toggle__icon span:last-child {
 
 .case__toggle {
   justify-self: end;
-  margin-top: 0.35rem;
+  margin-top: 0.4rem;
   width: 1.5rem;
   height: 1.5rem;
   display: grid;
   place-items: center;
-  border: 1px solid var(--rule);
+  border: 1.5px solid var(--ink);
   font-family: var(--font-mono);
-  font-size: 14px;
+  font-size: 15px;
   font-weight: 500;
   line-height: 1;
-  color: var(--ink-soft);
+  color: var(--ink);
   transition: color 160ms ease, border-color 160ms ease;
 }
 
@@ -888,11 +888,6 @@ body.nav-open .nav-toggle__icon span:last-child {
 
 .case.is-open .case__toggle::before {
   content: "–";
-}
-
-.case.is-open .case__toggle {
-  color: var(--accent);
-  border-color: var(--accent);
 }
 
 .case__panel[hidden] {
@@ -910,7 +905,7 @@ body.nav-open .nav-toggle__icon span:last-child {
 
 .case__block {
   margin-bottom: 1.35rem;
-  padding-left: calc(3rem + 1.25rem);
+  padding-left: calc(3rem + 1rem);
 }
 
 .case__block:last-child {

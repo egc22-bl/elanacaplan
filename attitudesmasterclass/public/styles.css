@@ -98,6 +98,16 @@ h2 { font-size: 1.35rem; }
 
 .choices[hidden] { display: none; }
 
+.closed {
+  margin: 0.15rem 0;
+  color: var(--muted);
+}
+
+.closure {
+  margin: 0 0 1rem;
+  color: var(--rose);
+}
+
 input[type="checkbox"],
 input[type="radio"] {
   width: 1.15rem;

@@ -6,6 +6,7 @@ import { createMailer } from '../src/mail.js';
 import { createHandler } from '../src/server.js';
 import { attends, createService } from '../src/service.js';
 import { memoryStore } from '../src/store.js';
+import { holidayOn, nextOpenOccurrence } from '../src/holidays.js';
 import { isInChangeWindow, nextOccurrence, torontoParts, zonedTimeToUtc } from '../src/time.js';
 
 const ballet = CLASSES.find((item) => item.id === 'mon-0920-ballet-12');
@@ -35,12 +36,16 @@ test('the fall list has 30 classes and Caddy Superville', () => {
   assert.equal(caddy.length, 3);
   assert.equal(CLASSES.some((item) => item.label.includes('Cately')), false);
   assert.equal(CLASSES.filter((item) => item.label.includes('Caroline Moro-Dalicandro')).length, 5);
+  assert.equal(CLASSES.filter((item) => item.label.includes('Tim Turney')).length, 14);
+  assert.equal(CLASSES.some((item) => item.label.includes('Tunney')), false);
 });
 
 test('next class is this week until that class has started', () => {
   assert.equal(nextOccurrence(ballet, wednesdayNoon).ymd, '2026-10-05');
   const atStart = zonedTimeToUtc('2026-10-05', '09:20');
   assert.equal(nextOccurrence(ballet, atStart).ymd, '2026-10-12');
+  assert.equal(holidayOn('2026-10-12').name, 'Thanksgiving');
+  assert.equal(nextOpenOccurrence(ballet, atStart).ymd, '2026-10-19');
 });
 
 test('change emails wait until 5pm the night before', () => {
@@ -57,14 +62,14 @@ test('a signup before 5pm the night before is saved and not emailed', async () =
     email: 'Jane@Example.com',
     phone: '(905) 555-0100',
     classes: [
-      { id: ballet.id, mode: 'once' },
+      { id: ballet.id, mode: 'once', date: '2026-10-05' },
       { id: jazz.id, mode: 'weekly' },
     ],
   });
   assert.equal(result.ok, true);
   assert.equal(result.saved.length, 2);
   assert.equal(result.saved[0].dateLabel, 'Mon Oct 5');
-  assert.match(result.saved[1].label, /Thursday, 6:30 pm — Jazz 1 & 2 — Tim Tunney \(New\)/);
+  assert.match(result.saved[1].label, /Thursday, 6:30 pm — Jazz 1 & 2 — Tim Turney \(New\)/);
   assert.equal(store.all().length, 2);
   assert.equal(mail.messages.length, 0);
 });
@@ -75,12 +80,13 @@ test('the same email and phone updates a class instead of duplicating it', async
     name: 'Jane Doe',
     email: 'jane@example.com',
     phone: '905-555-0100',
-    classes: [{ id: ballet.id, mode: 'once' }],
+    classes: [{ id: ballet.id, mode: 'once', date: '2026-10-05' }],
   };
   await service.signUp(person);
   await service.signUp({ ...person, classes: [{ id: ballet.id, mode: 'weekly' }] });
-  assert.equal(store.all().filter((row) => !row.stoppedAt).length, 1);
-  assert.equal(store.all()[0].mode, 'weekly');
+  const active = store.all().filter((row) => !row.stoppedAt);
+  assert.equal(active.length, 1);
+  assert.equal(active[0].mode, 'weekly');
 });
 
 test('a signup after 5pm the night before prepares a change email and does not deliver it in test', async () => {
@@ -102,7 +108,7 @@ test('a signup after 5pm the night before prepares a change email and does not d
     name: 'Jane Doe',
     email: 'jane@example.com',
     phone: '9055550100',
-    classes: [{ id: ballet.id, mode: 'once' }],
+    classes: [{ id: ballet.id, mode: 'once', date: '2026-10-05' }],
   });
   assert.equal(result.ok, true);
   assert.equal(fetches, 0);
@@ -116,7 +122,7 @@ test('cancel matches email and phone and can skip one week or stop', async () =>
     email: 'jane@example.com',
     phone: '905-555-0100',
     classes: [
-      { id: ballet.id, mode: 'once' },
+      { id: ballet.id, mode: 'once', date: '2026-10-05' },
       { id: jazz.id, mode: 'weekly' },
     ],
   });
@@ -124,7 +130,7 @@ test('cancel matches email and phone and can skip one week or stop', async () =>
     name: 'Someone Else',
     email: 'jane@example.com',
     phone: '416-555-0199',
-    classes: [{ id: ballet.id, mode: 'once' }],
+    classes: [{ id: ballet.id, mode: 'once', date: '2026-10-05' }],
   });
 
   const wrong = service.lookup({ email: 'jane@example.com', phone: '4165550000' });
@@ -138,6 +144,7 @@ test('cancel matches email and phone and can skip one week or stop', async () =>
     email: 'jane@example.com',
     phone: '9055550100',
     classId: ballet.id,
+    date: '2026-10-05',
     action: 'drop',
   });
   assert.equal(dropped.ok, true);
@@ -205,7 +212,7 @@ test('a removal inside the change window includes the updated list and is not de
     name: 'Jane Doe',
     email: 'jane@example.com',
     phone: '905-555-0100',
-    classes: [{ id: ballet.id, mode: 'once' }],
+    classes: [{ id: ballet.id, mode: 'once', date: '2026-10-05' }],
   });
   const row = early.store.all()[0];
   const laterStore = memoryStore();
@@ -219,6 +226,7 @@ test('a removal inside the change window includes the updated list and is not de
     email: 'jane@example.com',
     phone: '905-555-0100',
     classId: ballet.id,
+    date: '2026-10-05',
     action: 'drop',
   });
   assert.equal(result.ok, true);
@@ -226,6 +234,50 @@ test('a removal inside the change window includes the updated list and is not de
   assert.match(seen[0].text, /Removed: Jane Doe/);
   assert.match(seen[0].text, /Updated list:\nNo signups/);
   assert.equal(attends(laterStore.all()[0], ballet, '2026-10-05'), false);
+});
+
+test('statutory holidays are closed and cannot be booked', async () => {
+  const { service, store, mail } = serviceAt(wednesdayNoon);
+  const rejected = await service.signUp({
+    name: 'Jane Doe',
+    email: 'jane@example.com',
+    phone: '905-555-0100',
+    classes: [{ id: ballet.id, mode: 'once', date: '2026-10-12' }],
+  });
+  assert.equal(rejected.ok, false);
+  assert.equal(store.all().length, 0);
+
+  await service.signUp({
+    name: 'Jane Doe',
+    email: 'jane@example.com',
+    phone: '905-555-0100',
+    classes: [{ id: ballet.id, mode: 'weekly' }],
+  });
+  const row = store.all()[0];
+  assert.equal(row.startDate, '2026-10-05');
+  assert.equal(attends(row, ballet, '2026-10-05'), true);
+  assert.equal(attends(row, ballet, '2026-10-12'), false);
+  assert.equal(attends(row, ballet, '2026-10-19'), true);
+
+  const monday = service.listClasses().days
+    .find((day) => day.name === 'Monday').classes
+    .find((item) => item.id === ballet.id);
+  assert.equal(monday.dates.find((entry) => entry.date === '2026-10-12').holiday, 'Thanksgiving');
+  assert.equal(monday.everyWeekDate, '2026-10-05');
+
+  const closedNight = await service.digest(zonedTimeToUtc('2026-10-11', '17:00'));
+  assert.equal(closedNight.ran, true);
+  assert.match(closedNight.message.text, /No classes — Thanksgiving/);
+  assert.equal(closedNight.message.text.includes('Ballet'), false);
+  assert.equal(closedNight.message.text.includes('Tim Turney'), false);
+
+  const christmasEve = await service.digest(zonedTimeToUtc('2026-12-24', '17:00'));
+  assert.equal(christmasEve.reason, 'no-classes');
+
+  const boxingNight = await service.digest(zonedTimeToUtc('2026-12-25', '17:00'));
+  assert.match(boxingNight.message.text, /Boxing Day/);
+  assert.equal(boxingNight.message.text.includes('Yoga'), false);
+  assert.equal(mail.messages.length, 2);
 });
 
 test('the page and routes do not call the mail provider', async () => {
@@ -253,6 +305,7 @@ test('the page and routes do not call the mail provider', async () => {
 
     const classes = await (await fetch(`${base}/api/classes`)).json();
     assert.equal(classes.days.reduce((sum, day) => sum + day.classes.length, 0), 30);
+    assert.equal(classes.closures.some((day) => day.name === 'Thanksgiving' && day.date === '2026-10-12'), true);
 
     const signup = await fetch(`${base}/api/signups`, {
       method: 'POST',
@@ -261,7 +314,7 @@ test('the page and routes do not call the mail provider', async () => {
         name: 'Jane Doe',
         email: 'jane@example.com',
         phone: '905-555-0100',
-        classes: [{ id: ballet.id, mode: 'once' }],
+        classes: [{ id: ballet.id, mode: 'once', date: '2026-10-05' }],
       }),
     });
     assert.equal(signup.status, 200);

@@ -23,6 +23,34 @@ export function createStore(state, save = () => {}) {
         && !row.stoppedAt
       )) ?? null;
     },
+    weeklyFor(email, phoneDigits, classId) {
+      return state.signups.find((row) => (
+        row.email === email
+        && row.phoneDigits === phoneDigits
+        && row.classId === classId
+        && row.mode === 'weekly'
+        && !row.stoppedAt
+      )) ?? null;
+    },
+    onceOn(email, phoneDigits, classId, date) {
+      return state.signups.find((row) => (
+        row.email === email
+        && row.phoneDigits === phoneDigits
+        && row.classId === classId
+        && row.mode === 'once'
+        && row.startDate === date
+        && !row.stoppedAt
+      )) ?? null;
+    },
+    activeOnces(email, phoneDigits, classId) {
+      return state.signups.filter((row) => (
+        row.email === email
+        && row.phoneDigits === phoneDigits
+        && row.classId === classId
+        && row.mode === 'once'
+        && !row.stoppedAt
+      ));
+    },
     forContact(email, phoneDigits) {
       return state.signups.filter((row) => (
         row.email === email && row.phoneDigits === phoneDigits && !row.stoppedAt

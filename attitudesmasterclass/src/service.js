@@ -1,11 +1,11 @@
 import { CLASSES, DAY_ORDER, classById } from './classes.js';
 import { newId } from './store.js';
+import { holidayOn, isOpenClassDate, nextOpenOccurrence, upcomingDates } from './holidays.js';
 import {
   addDays,
   formatLongDate,
   formatShortDate,
   isInChangeWindow,
-  nextOccurrence,
   torontoParts,
   weekdayOf,
   zonedTimeToUtc,
@@ -32,6 +32,7 @@ function personLine(person, mode = person.mode) {
 
 export function attends(signup, classItem, ymd) {
   if (signup.classId !== classItem.id) return false;
+  if (holidayOn(ymd)) return false;
   const start = zonedTimeToUtc(ymd, classItem.time);
   if (signup.stoppedAt && Date.parse(signup.stoppedAt) <= start.getTime()) return false;
   if (signup.mode === 'once') return signup.startDate === ymd;
@@ -80,20 +81,39 @@ export function createService({ store, mail, now = () => new Date() }) {
   return {
     listClasses() {
       const current = now();
-      return {
-        days: DAY_ORDER.map((day) => ({
-          name: day.name,
-          classes: CLASSES.filter((item) => item.weekday === day.weekday).map((item) => {
-            const next = nextOccurrence(item, current);
+      const closures = [];
+      const seenClosures = new Set();
+      const days = DAY_ORDER.map((day) => ({
+        name: day.name,
+        classes: CLASSES.filter((item) => item.weekday === day.weekday).map((item) => {
+          const dates = upcomingDates(item, current).map((entry) => {
+            if (entry.closed && !seenClosures.has(entry.date)) {
+              seenClosures.add(entry.date);
+              closures.push({
+                date: entry.date,
+                dateLabel: formatShortDate(entry.date),
+                name: entry.holiday,
+              });
+            }
             return {
-              id: item.id,
-              label: item.label,
-              nextDate: next.ymd,
-              nextDateLabel: formatShortDate(next.ymd),
+              date: entry.date,
+              dateLabel: formatShortDate(entry.date),
+              closed: entry.closed,
+              holiday: entry.holiday,
             };
-          }),
-        })),
-      };
+          });
+          const firstOpen = dates.find((entry) => !entry.closed);
+          return {
+            id: item.id,
+            label: item.label,
+            dates,
+            everyWeekDate: firstOpen?.date ?? null,
+            everyWeekLabel: firstOpen?.dateLabel ?? null,
+          };
+        }),
+      }));
+      closures.sort((a, b) => a.date.localeCompare(b.date));
+      return { closures, days };
     },
 
     async signUp(input) {
@@ -109,71 +129,98 @@ export function createService({ store, mail, now = () => new Date() }) {
 
       const picks = [];
       const seen = new Set();
+      const current = now();
       for (const item of selected) {
         const classItem = classById(item?.id);
-        if (!classItem || seen.has(classItem.id)) return fail('Choose a class from the list.');
-        seen.add(classItem.id);
-        picks.push({
-          classItem,
-          mode: item?.mode === 'weekly' ? 'weekly' : 'once',
-        });
+        if (!classItem) return fail('Choose a class from the list.');
+        const mode = item?.mode === 'weekly' ? 'weekly' : 'once';
+        const date = mode === 'weekly' ? nextOpenOccurrence(classItem, current).ymd : String(item?.date ?? '');
+        if (mode === 'once' && !isOpenClassDate(classItem, date, current)) {
+          return fail('Choose an open class date.');
+        }
+        const key = `${classItem.id}:${mode}:${date}`;
+        if (seen.has(key)) continue;
+        seen.add(key);
+        picks.push({ classItem, mode, date });
       }
+      if (!picks.length) return fail('Choose a class.');
 
-      const current = now();
       const saved = [];
       for (const pick of picks) {
-        const next = nextOccurrence(pick.classItem, current);
-        const existing = store.activeForClass(email, digits, pick.classItem.id);
-        if (!existing) {
-          const row = {
-            id: newId(),
+        const stamp = current.toISOString();
+        if (pick.mode === 'weekly') {
+          for (const once of store.activeOnces(email, digits, pick.classItem.id)) {
+            store.update(once.id, { stoppedAt: stamp, updatedAt: stamp });
+          }
+          const existing = store.weeklyFor(email, digits, pick.classItem.id);
+          if (!existing) {
+            const row = {
+              id: newId(),
+              classId: pick.classItem.id,
+              name,
+              email,
+              phone,
+              phoneDigits: digits,
+              mode: 'weekly',
+              startDate: pick.date,
+              skipDates: [],
+              stoppedAt: null,
+              createdAt: stamp,
+              updatedAt: stamp,
+            };
+            store.insert(row);
+            await sendChange(pick.classItem, pick.date, 'Added', row, 'weekly');
+          } else {
+            const switched = existing.startDate !== pick.date;
+            store.update(existing.id, {
+              name,
+              phone,
+              startDate: pick.date,
+              updatedAt: stamp,
+            });
+            if (switched || existing.name !== name || existing.phone !== phone) {
+              await sendChange(pick.classItem, pick.date, 'Updated', { ...existing, name, phone }, 'weekly');
+            }
+          }
+        } else if (store.weeklyFor(email, digits, pick.classItem.id)) {
+          saved.push({
             classId: pick.classItem.id,
-            name,
-            email,
-            phone,
-            phoneDigits: digits,
-            mode: pick.mode,
-            startDate: next.ymd,
-            skipDates: [],
-            stoppedAt: null,
-            createdAt: current.toISOString(),
-            updatedAt: current.toISOString(),
-          };
-          store.insert(row);
-          await sendChange(pick.classItem, next.ymd, 'Added', row, pick.mode);
-        } else if (existing.mode !== pick.mode) {
-          const verb = pick.mode === 'weekly' ? 'Switched to every week' : 'Switched to next class only';
-          store.update(existing.id, {
-            name,
-            phone,
-            mode: pick.mode,
-            startDate: next.ymd,
-            skipDates: [],
-            updatedAt: current.toISOString(),
+            label: pick.classItem.label,
+            mode: 'weekly',
+            date: store.weeklyFor(email, digits, pick.classItem.id).startDate,
+            dateLabel: formatShortDate(store.weeklyFor(email, digits, pick.classItem.id).startDate),
           });
-          await sendChange(pick.classItem, next.ymd, verb, { ...existing, name, phone }, pick.mode);
+          continue;
         } else {
-          store.update(existing.id, {
-            name,
-            phone,
-            startDate: next.ymd,
-            updatedAt: current.toISOString(),
-          });
-          if (existing.name !== name || existing.phone !== phone) {
-            await sendChange(
-              pick.classItem,
-              next.ymd,
-              'Updated',
-              { ...existing, name, phone },
-              pick.mode,
-            );
+          const existing = store.onceOn(email, digits, pick.classItem.id, pick.date);
+          if (!existing) {
+            const row = {
+              id: newId(),
+              classId: pick.classItem.id,
+              name,
+              email,
+              phone,
+              phoneDigits: digits,
+              mode: 'once',
+              startDate: pick.date,
+              skipDates: [],
+              stoppedAt: null,
+              createdAt: stamp,
+              updatedAt: stamp,
+            };
+            store.insert(row);
+            await sendChange(pick.classItem, pick.date, 'Added', row, 'once');
+          } else if (existing.name !== name || existing.phone !== phone) {
+            store.update(existing.id, { name, phone, updatedAt: stamp });
+            await sendChange(pick.classItem, pick.date, 'Updated', { ...existing, name, phone }, 'once');
           }
         }
         saved.push({
           classId: pick.classItem.id,
           label: pick.classItem.label,
           mode: pick.mode,
-          dateLabel: formatShortDate(next.ymd),
+          date: pick.date,
+          dateLabel: formatShortDate(pick.date),
         });
       }
       return { ok: true, saved };
@@ -194,6 +241,7 @@ export function createService({ store, mail, now = () => new Date() }) {
           classId: row.classId,
           label: classItem.label,
           mode: row.mode,
+          date: row.mode === 'once' ? row.startDate : next.ymd,
           nextDateLabel: formatShortDate(next.ymd),
         });
       }
@@ -204,7 +252,11 @@ export function createService({ store, mail, now = () => new Date() }) {
       const email = normalizeEmail(input?.email);
       const digits = phoneDigits(input?.phone);
       const classItem = classById(input?.classId);
-      const row = classItem ? store.activeForClass(email, digits, classItem.id) : null;
+      const row = classItem
+        ? (input?.action === 'drop'
+          ? store.onceOn(email, digits, classItem.id, input?.date)
+          : store.weeklyFor(email, digits, classItem.id))
+        : null;
       if (!row) return fail("We don't have a signup for that email and phone.");
       const current = now();
       const next = upcomingDate(row, classItem, current);
@@ -243,6 +295,20 @@ export function createService({ store, mail, now = () => new Date() }) {
       if (parts.hour !== 17) return { ran: false, reason: 'not-5pm', delivered: false };
       const ymd = addDays(parts.ymd, 1);
       const classes = CLASSES.filter((item) => item.weekday === weekdayOf(ymd));
+      const holiday = holidayOn(ymd);
+      if (holiday && classes.length) {
+        if (store.wasRosterSent(ymd)) return { ran: false, reason: 'already-sent', delivered: false };
+        const subject = `No classes — ${formatLongDate(ymd)}`;
+        const text = `No classes — ${holiday.name}\n${formatLongDate(ymd)}\n\nThe studio is closed.\n`;
+        const result = await mail.send({ subject, text });
+        if (result.delivered) store.markRosterSent(ymd);
+        return {
+          ran: true,
+          delivered: result.delivered === true,
+          suppressed: result.suppressed === true,
+          message: { subject, text },
+        };
+      }
       if (!classes.length) return { ran: false, reason: 'no-classes', delivered: false };
       if (store.wasRosterSent(ymd)) return { ran: false, reason: 'already-sent', delivered: false };
 

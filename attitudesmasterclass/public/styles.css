@@ -96,6 +96,8 @@ h2 { font-size: 1.35rem; }
   margin: 0.7rem 0 0 1.9rem;
 }
 
+.choices[hidden] { display: none; }
+
 input[type="checkbox"],
 input[type="radio"] {
   width: 1.15rem;

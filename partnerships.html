@@ -1,0 +1,248 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta
+      name="description"
+      content="Sample tracker comparing standard and proposed clauses in a fictional payments partnership negotiation."
+    />
+    <link rel="canonical" href="https://www.elanacaplan.com/partnerships" />
+    <meta property="og:title" content="Partnership negotiations — Elana Caplan" />
+    <meta
+      property="og:description"
+      content="Sample tracker comparing standard and proposed clauses in a fictional payments partnership negotiation."
+    />
+    <meta property="og:image" content="https://www.elanacaplan.com/public/static/og-social-v4.png" />
+    <meta property="og:image:secure_url" content="https://www.elanacaplan.com/public/static/og-social-v4.png" />
+    <meta property="og:image:width" content="1200" />
+    <meta property="og:image:height" content="630" />
+    <meta
+      property="og:image:alt"
+      content="Elana Caplan — Operational diagnostics for fintech and payments"
+    />
+    <meta property="og:type" content="website" />
+    <meta property="og:url" content="https://www.elanacaplan.com/partnerships" />
+    <meta name="twitter:card" content="summary_large_image" />
+    <meta name="twitter:title" content="Partnership negotiations — Elana Caplan" />
+    <meta
+      name="twitter:description"
+      content="Sample tracker comparing standard and proposed clauses in a fictional payments partnership negotiation."
+    />
+    <meta name="twitter:image" content="https://www.elanacaplan.com/public/static/og-social-v4.png" />
+    <title>Partnership negotiations — Elana Caplan</title>
+    <link rel="icon" type="image/svg+xml" href="/favicon.svg?v=2" />
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Bricolage+Grotesque:opsz,wght@12..96,600;12..96,700&family=IBM+Plex+Mono:wght@400;500&family=Source+Serif+4:opsz,wght@8..60,400;8..60,600&display=swap"
+      rel="stylesheet"
+    />
+    <link rel="stylesheet" href="site.css?v=36" />
+  </head>
+  <body>
+    <div class="site site--tracker">
+      <header class="legal-top">
+        <div class="shell legal-top__inner">
+          <a class="site-brand" href="/">Elana Caplan</a>
+          <a class="mono-label legal-top__back" href="/">← Back</a>
+        </div>
+      </header>
+
+      <main class="tracker-page">
+        <div class="shell">
+          <header class="tracker-intro">
+            <p class="mono-label">Sample data</p>
+            <h1 class="legal-page__title">Partnership negotiations</h1>
+            <p class="tracker-intro__lede">
+              Standard language beside the clause currently on the table. These rows are generated sample data for a fictional referral partnership between Northline Payments and Harbor Retail. They are not a live negotiation and not legal advice.
+            </p>
+          </header>
+
+          <div class="tracker-tools">
+            <label class="tracker-search">
+              <span class="mono-label" id="clause-filter-label">Find a clause</span>
+              <input
+                type="search"
+                id="clause-filter"
+                data-clause-filter
+                placeholder="Term, fees, liability…"
+                aria-labelledby="clause-filter-label"
+                autocomplete="off"
+              />
+            </label>
+            <p class="mono-label tracker-count" data-clause-count>14 clauses</p>
+          </div>
+
+          <div class="tracker-scroll">
+            <table class="clause-tracker">
+              <caption class="visually-hidden">
+                Sample partnership clauses, with standard language beside the proposed change
+              </caption>
+              <thead>
+                <tr>
+                  <th scope="col">Standard Clause</th>
+                  <th scope="col">Proposed Clause</th>
+                </tr>
+              </thead>
+              <tbody data-clause-rows>
+                <tr>
+                  <td data-label="Standard Clause">
+                    This Agreement begins on the Effective Date and continues for an initial term of twenty-four (24) months. It then renews automatically for successive twelve (12) month periods unless either party gives written notice of non-renewal at least ninety (90) days before the end of the then-current term.
+                  </td>
+                  <td data-label="Proposed Clause">
+                    This Agreement begins on the Effective Date and continues for an initial term of twelve (12) months. Renewal requires a written amendment signed by both parties at least sixty (60) days before expiry. There is no automatic renewal.
+                  </td>
+                </tr>
+                <tr>
+                  <td data-label="Standard Clause">
+                    During the Term, Partner shall not market, refer, or resell a competing payments product to customers in the Territory.
+                  </td>
+                  <td data-label="Proposed Clause">
+                    Exclusivity is limited to card-present acquiring and to customers Partner introduces after the Effective Date. Existing relationships and products outside acquiring are excluded.
+                  </td>
+                </tr>
+                <tr>
+                  <td data-label="Standard Clause">
+                    Company shall pay Partner a referral fee equal to fifteen percent (15%) of net revenue actually collected from each Referred Customer for twenty-four (24) months after that customer’s first settled transaction.
+                  </td>
+                  <td data-label="Proposed Clause">
+                    Company shall pay Partner a referral fee equal to twenty percent (20%) of net revenue for as long as each Referred Customer remains active, including revenue from products added after the first transaction.
+                  </td>
+                </tr>
+                <tr>
+                  <td data-label="Standard Clause">
+                    Referral fees are calculated monthly and paid within forty-five (45) days after the end of the month in which the underlying revenue is collected.
+                  </td>
+                  <td data-label="Proposed Clause">
+                    Referral fees are calculated weekly and paid within ten (10) business days. Refunds and chargebacks are trued up in the following period.
+                  </td>
+                </tr>
+                <tr>
+                  <td data-label="Standard Clause">
+                    Company owns the customer relationship, the merchant agreement, and all customer data collected in connection with the services. Partner receives only the reports required to reconcile fees.
+                  </td>
+                  <td data-label="Proposed Clause">
+                    Partner remains the primary relationship owner. Company may contact the customer only for underwriting, support of the payment service, and required regulatory notices, and must copy Partner on material communications.
+                  </td>
+                </tr>
+                <tr>
+                  <td data-label="Standard Clause">
+                    Company may use transaction data to operate the service, meet legal obligations, and improve its products, including in aggregated or de-identified form.
+                  </td>
+                  <td data-label="Proposed Clause">
+                    Company may use customer data solely to process transactions for that customer and to meet a legal obligation. Any use for product improvement, including aggregated use, requires Partner’s prior written consent.
+                  </td>
+                </tr>
+                <tr>
+                  <td data-label="Standard Clause">
+                    Company will use commercially reasonable efforts to maintain the service. Scheduled maintenance may occur at any time, with notice when practicable.
+                  </td>
+                  <td data-label="Proposed Clause">
+                    Company will maintain 99.9% monthly uptime, excluding scheduled maintenance announced at least five (5) business days in advance. Service credits apply if monthly uptime falls below that level.
+                  </td>
+                </tr>
+                <tr>
+                  <td data-label="Standard Clause">
+                    Either party may terminate this Agreement for convenience on sixty (60) days’ prior written notice.
+                  </td>
+                  <td data-label="Proposed Clause">
+                    Company may not terminate for convenience during the initial term. Partner may terminate for convenience on thirty (30) days’ notice. After termination, referral fees on then-active customers continue for twelve (12) months.
+                  </td>
+                </tr>
+                <tr>
+                  <td data-label="Standard Clause">
+                    Each party’s aggregate liability arising out of this Agreement is limited to the fees paid or payable in the twelve (12) months before the claim. Neither party is liable for indirect, incidental, or consequential damages.
+                  </td>
+                  <td data-label="Proposed Clause">
+                    The liability cap does not apply to confidentiality breaches, data incidents, or indemnified third-party claims. For all other claims, the cap is the fees paid or payable in the twenty-four (24) months before the claim.
+                  </td>
+                </tr>
+                <tr>
+                  <td data-label="Standard Clause">
+                    Each party will indemnify the other against third-party claims arising from its gross negligence, willful misconduct, or material breach of this Agreement.
+                  </td>
+                  <td data-label="Proposed Clause">
+                    Company will also indemnify Partner against third-party claims that the payment service infringes intellectual property rights, and against card-network fines caused by Company’s processing, except to the extent caused by Partner’s fraud or misuse.
+                  </td>
+                </tr>
+                <tr>
+                  <td data-label="Standard Clause">
+                    Partner may, no more than once per calendar year and on thirty (30) days’ notice, audit fee calculations through an independent accountant bound by confidentiality.
+                  </td>
+                  <td data-label="Proposed Clause">
+                    Partner may audit twice per calendar year, on ten (10) days’ notice, and may use its own finance team. Company will provide transaction-level detail sufficient to recalculate every fee.
+                  </td>
+                </tr>
+                <tr>
+                  <td data-label="Standard Clause">
+                    Neither party may assign this Agreement without the other’s prior written consent, except to an affiliate or to a successor in connection with a merger or a sale of substantially all of its assets.
+                  </td>
+                  <td data-label="Proposed Clause">
+                    Partner’s consent is required for any assignment by Company, including an assignment to a successor. A change of control of Company is treated as an assignment and gives Partner a right to terminate.
+                  </td>
+                </tr>
+                <tr>
+                  <td data-label="Standard Clause">
+                    Neither party will issue a press release or use the other’s name or marks without prior written approval, except for a factual statement that a commercial relationship exists.
+                  </td>
+                  <td data-label="Proposed Clause">
+                    Partner may list Company as a payments partner on its website and in sales materials, using marks Company has pre-approved, without a separate approval for each use.
+                  </td>
+                </tr>
+                <tr>
+                  <td data-label="Standard Clause">
+                    This Agreement is governed by the laws of the Province of Ontario and the federal laws of Canada applicable in Ontario. The courts of Ontario have exclusive jurisdiction.
+                  </td>
+                  <td data-label="Proposed Clause">
+                    This Agreement is governed by the laws of the State of New York, without regard to conflict-of-laws rules. Disputes are resolved by confidential binding arbitration in New York under the AAA Commercial Rules.
+                  </td>
+                </tr>
+              </tbody>
+            </table>
+          </div>
+          <p class="tracker-empty" data-clause-empty hidden>No clauses match that search.</p>
+        </div>
+      </main>
+
+      <footer class="site-footer">
+        <div class="shell site-footer__inner">
+          <a class="site-brand" href="/">Elana Caplan</a>
+          <p class="site-footer__tag">Operational diagnostics for fintech and payments.</p>
+          <nav class="site-footer__links" aria-label="Footer">
+            <a href="/partnerships" aria-current="page">Partnerships</a>
+            <a href="/writing">Writing</a>
+            <a href="/privacy">Privacy Policy</a>
+            <a href="/terms">Terms of Use</a>
+            <span class="mono-label site-footer__meta">© 2026</span>
+          </nav>
+        </div>
+      </footer>
+    </div>
+
+    <script>
+      (function () {
+        var input = document.querySelector("[data-clause-filter]");
+        var rows = document.querySelectorAll("[data-clause-rows] tr");
+        var count = document.querySelector("[data-clause-count]");
+        var empty = document.querySelector("[data-clause-empty]");
+        if (!input || !count) return;
+
+        function apply() {
+          var query = input.value.trim().toLowerCase();
+          var visible = 0;
+          rows.forEach(function (row) {
+            var match = !query || row.textContent.toLowerCase().indexOf(query) !== -1;
+            row.hidden = !match;
+            if (match) visible += 1;
+          });
+          count.textContent = visible === 1 ? "1 clause" : visible + " clauses";
+          if (empty) empty.hidden = visible !== 0;
+        }
+
+        input.addEventListener("input", apply);
+        apply();
+      })();
+    </script>
+  </body>
+</html>

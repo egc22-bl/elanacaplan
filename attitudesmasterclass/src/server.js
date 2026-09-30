@@ -117,7 +117,7 @@ export function startServer({ port = 8787, store, mail, cronSecret, schedule = f
     timer.unref();
   }
   return new Promise((resolve) => {
-    server.listen(port, () => resolve(server));
+    server.listen(port, '0.0.0.0', () => resolve(server));
   });
 }
 

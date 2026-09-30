@@ -1,0 +1,74 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <title>Save your spot — ATTITUDES master class</title>
+    <meta name="description" content="Save a spot in class at ATTITUDES master class in Markham. No account." />
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link href="https://fonts.googleapis.com/css2?family=Archivo+Black&family=Montserrat:wght@400;600;700&display=swap" rel="stylesheet" />
+    <link rel="stylesheet" href="/styles.css" />
+  </head>
+  <body>
+    <main class="wrap">
+      <p class="logo">ATTITUDES</p>
+      <p class="sub">master class</p>
+      <p class="address">
+        105 Riviera Drive #10<br />
+        Markham, ON L3R 5J7<br />
+        <a href="tel:9054151104">905-415-1104</a>
+      </p>
+
+      <section id="signup">
+        <form id="signup-form">
+          <h1>Save your spot</h1>
+          <p class="lede">No account. Check a class, then choose the dates.</p>
+          <div id="closures"></div>
+          <div id="classes" aria-live="polite"></div>
+          <p id="classes-status" class="lede">Loading classes…</p>
+          <label class="field">
+            <span>Name</span>
+            <input name="name" type="text" autocomplete="name" required />
+          </label>
+          <label class="field">
+            <span>Email</span>
+            <input name="email" type="email" autocomplete="email" required />
+          </label>
+          <label class="field">
+            <span>Phone</span>
+            <input name="phone" type="tel" autocomplete="tel" required />
+          </label>
+          <p id="signup-error" class="error" role="alert"></p>
+          <button type="submit">Save my spot</button>
+          <p class="note">We’ll only contact you if a class is cancelled.</p>
+        </form>
+        <div id="done" hidden>
+          <h1>You’re in.</h1>
+          <ul id="done-list"></ul>
+          <p class="note">We’ll only contact you if a class is cancelled.</p>
+          <button type="button" id="again">Save another spot</button>
+        </div>
+      </section>
+
+      <section id="cancel">
+        <h2>Cancel a spot</h2>
+        <p class="lede">Enter the email and phone you used to sign up.</p>
+        <form id="cancel-form">
+          <label class="field">
+            <span>Email</span>
+            <input name="email" type="email" autocomplete="email" required />
+          </label>
+          <label class="field">
+            <span>Phone</span>
+            <input name="phone" type="tel" autocomplete="tel" required />
+          </label>
+          <p id="cancel-error" class="error" role="alert"></p>
+          <button type="submit">Find my classes</button>
+        </form>
+        <div id="cancel-results"></div>
+      </section>
+    </main>
+    <script src="/app.js"></script>
+  </body>
+</html>
